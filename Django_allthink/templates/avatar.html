@@ -44,44 +44,28 @@
 
             <div style="position:absolute;left:200px;top:90px;right:0;bottom:0;z-index:2">
 
-
-                <div style="width:100%;height:75px;background:url(/media/images/allthinkbg.jpg) 0 -68px repeat-x rgb(255,255,255);font-size:8pt;line-height:200%">
-                    <a href="/"
-                       target="top"><img src="/media/images/allthinklogo2.png" style="float:left;margin-right:15px"></a>
-
-                    <div style="max-width:770px">
-                        Allthink
-                    </div>
-                </div>
-
-                <div class="options">
-                    <a href="/user/{{ username }}/lesson/create"
-                       target="_blank"><img src="/media/images/add.png" class="upic">Create New Lesson</a>
-                </div>
-
-                <div class="table bb">
-                    {% if lessons %}
-                        {% for lesson in lessons %}
-                            <div class="row">
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1"
-                                   target="_top"><img src="/media/images/page-web.png" class="postpic"></a>
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1"
-                                   class="title" target="top">{{ lesson.lessonTitle }}</a>
-
-                                <div class="byline">
-                                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/edit">Edit Lesson</a>
-                                    -
-                                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/delete">Delete</a>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        <div class="row">
-                            No lesson found.
+                <form method="post" id="inform" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="table inform">
+                        <div class="toprow">
+                            <div class="title">Upload Picture</div>
                         </div>
-                    {% endif %}
 
-                </div>
+                        <div class="row alt text ">
+                            <div class="name"><img src="/{{ avatar_dir }}" style="width:100px"></div>
+                            <div class="field">{{ form.uploadFile }}</div>
+                            <div class="help">Select a gif, jpg, or png file less than 8Mb</div>
+                        </div>
+
+
+                        <div class="row alt submit">
+                            <div class="name">&nbsp;</div>
+                            <div class="field">
+                                <input type="submit" name="submit" value="Submit" id="formsubmit" class="submit">
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
             </div>
 
@@ -91,7 +75,7 @@
 
 
 <!--
- 
+
 -->
 
 

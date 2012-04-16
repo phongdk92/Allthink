@@ -9,7 +9,7 @@ body {
 	font-size:10pt;
 	font-family: Verdana, Arial, sans-serif;
 	text-align:center;
-	background:url('/i/allthinkbg5.png') 0 0 repeat rgb(231,242,255);
+	background:url('/media/images/allthinkbg5.png') 0 0 repeat rgb(231,242,255);
 }
 
 table, tr, td, iframe, p, div, span, img {
@@ -89,7 +89,7 @@ form {
 
 
 #logo {
-	background:url('/i/logo61.png') 0 0 no-repeat;
+	background:url('/media/images/logo61.png') 0 0 no-repeat;
 	height:42px;
 	width:101px;
 	display:block;
@@ -604,7 +604,7 @@ div.options a {
 	display:block;
 	float:left;
 	padding:0 11px;
-	background:url('/i/buttonbg2.png') 0 0 repeat-x rgb(250,250,250);
+	background:url('/media/images/buttonbg2.png') 0 0 repeat-x rgb(250,250,250);
 	margin:0 4px 0 0;
 	font-family:Verdana;
 	font-size:8pt;

@@ -26,12 +26,29 @@
 
 
 .lesson .lessonbody {
-	line-height:170%;
+	line-height:190%;
 	margin-bottom:20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.lesson .lessontext {
+    float: left;
+    margin:10px;
+    font-size: 10pt;
+    font-family: Verdana;
+    color: #000000;
+}
 
-
+.lesson .linkdownload {
+    text-decoration: underline;
+    font-family: Tahoma;
+    font-style: inherit;
+    font-weight: bold;
+    font-size: 16pt;
+    color: #015e90;
+    cursor: pointer;
+}
 
 .lesson .sidebar {
 	padding:5px;
@@ -119,209 +136,6 @@ a.nextpage {
 }
 
 
-
-
-
-
-
-
-
-/*********** QUIZ ***********/
-
-
-#EQuiz {
-	min-height:300px;
-}
-
-#EQuiz:after {
-	content:' ';
-	display:block;
-	clear:both;
-}
-
-
-#EQheader {
-	margin:0 0 30px 0;
-	padding:0 0 10px 0;
-	border-bottom:1px solid rgb(230,230,230);
-	width:650px;
-	
-}
-
-
-#EQheader .title {
-	display:none;
-}
-
-#EQheader .data {
-	display:inline;
-	margin-right:15px;
-	padding-right:15px;
-	border-right:1px solid rgb(230,230,230);
-	color:rgb(0,128,0);
-	font-weight:bold;
-}
-
-#EQheader .data:last-child {
-	border:0;
-}
-
-#EQheader .small {
-	font-size:10pt;
-}
-
-
-#EQheader .incorrect {
-	color:rgb(213,0,0);
-}
-
-#EQheader .correct {
-	color:rgb(0,85,0);
-}
-
-#EQstartcount {
-	width:650px;
-	margin-top:20px;
-	font-family:Arial;
-	font-size:100px;
-	line-height:100px;
-	text-align:center;
-}
-
-#EQstartheader {
-	width:650px;
-	font-size:26px;
-	line-height:30px;
-	text-align:center;
-}
-
-
-
-
-#EQquestion {
-	width:650px;
-	font-size:26px;
-	line-height:30px;
-	margin-bottom:30px;
-}
-
-
-
-#EQoptions {
-	font-size:16px;
-}
-
-
-
-#EQoptions a {
-	display:block;
-	float:left;
-	margin:0 5px 5px 0;
-	color:rgb(0,0,0);
-	padding:15px;
-	width:auto;
-	background:rgb(230,240,255);
-	position:relative;
-}
-
-#EQoptions:after {
-	content:' ';
-	display:block;
-	clear:both;
-}
-
-
-#EQoptions a:hover {
-	background:rgb(170,213,255);
-}
-
-
-
-#EQoptions a.incorrect {
-	text-decoration: line-through;
-	color: rgb(213,0,0);
-	background:rgb(255,213,213);
-}
-
-#EQoptions a.correct {
-	color:rgb(0,170,0);
-	background:rgb(170,255,170);
-}
-
-#EQoptions a.done,
-#EQoptions a.hidden.done,
-#EQoptions a.hidden {
-	background:rgb(245,245,245);
-	color:rgb(170,170,170);
-}
-
-
-
-
-
-
-#EQendmessage {
-	font-size:26px;
-	line-height:30px;
-}
-
-#EQendoptions {
-	margin-top:40px;
-}
-
-#EQendoptions.options {
-	clear:none;
-}
-
-#EQnextlessonwrapper a {
-	margin-top:30px;
-	display:block;
-	font-size:20pt;
-	font-family:Arial;
-	width:600px;
-	min-height:40px;
-}
-
-#EQnextlessonwrapper a b {
-	font-size:10px;
-	color:rgb(0,0,0);
-	display:block;
-	margin-bottom:2px;
-	line-height:100%;
-}
-
-
-#EQnextlessonwrapper a img {
-	width:40px;
-	height:40px;
-	margin-right:10px;
-	float:left;
-}
-
-
-
-
-#EQuiz div.table {
-	width:600px;
-	margin:30px 0 0 0;
-	clear:none;
-}
-
-
-#EQuiz .table .row,
-#EQuiz .table .toprow {
-	width:600px;
-	clear:none;
-}
-
-
-
-
-
-
-
-
-
 /***** STEP BY STEP *****/
 
 .StepByStep .SBSprompt {
@@ -373,7 +187,7 @@ a.nextpage {
 	background:rgb(245,245,245);
 	border-radius:4px;
 	border:1px solid rgb(190,190,190);
-	background:url('/i/buttonbg2.png') 0 0 repeat-x rgb(255,255,255);
+	background:url('/media/images/buttonbg2.png') 0 0 repeat-x rgb(255,255,255);
 	text-shadow: 1px 1px 0px rgb(255,255,255);
 	margin:20px 0 30px 0;
 }
@@ -386,57 +200,4 @@ a.nextpage {
 	display:block;
 	width:650px;
 }
-
-
-
-
-
-
-
-
-
-/************ LIST ************/
-
-.list .row {
-	display:block;
-	width:650px;
-	line-height:160%;
-	padding:7px 0;
-	margin:0;
-	border:0;
-}
-
-.list .row u {
-	font-size:8pt;
-	display:block;
-	text-decoration:none;
-	font-weight:bold;
-	width:30px;
-	float:left;
-	padding:2px 0;
-	background:rgb(0,170,85);
-	color:rgb(255,255,255);
-	text-align:center;
-	border-radius:14px;
-	margin-top:3px;
-}
-
-
-.list .row b {
-	font-size:16pt;
-	font-family:Arial;
-	display:block;
-	width:600px;	
-	font-weight:normal;
-	margin-left:50px;
-}
-
-.list .row i {
-	display:block;
-	width:600px;
-	font-style:normal;
-	font-size:10pt;
-	margin-left:50px;
-}
-
 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Allthink Lessons</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="/site_media/global.css">
+    <script type="text/javascript" src="/site_media/common.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="navwrapper" class="notranslate">
+        <ul class="topnav" style="float: right;">
+            <li>
+                <a href="/user/{{ username }}/" class="nav" style="color:rgb(213,213,240);">
+                    <img src="/{{ avatar_dir }}">
+                    {{ fullname }} </a>
+            </li>
+            <li>
+                <a href="/logout/" class="nav" style="color:rgb(213,213,240);">
+                    Logout </a>
+            </li>
+        </ul>
+        <a href="/" id="logo" class="gradebook" title="gradebook"><b>gradebook</b></a>
+        <ul class="topnav">
+            <li>
+                <a href="/user/{{ username }}/account" class="">Account </a>
+                <ul>
+                    <li><a href="/user/{{ username }}/account">Edit Account</a></li>
+                    <li><a href="/user/{{ username }}/pic">Edit Picture</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="main" class="clearfix">
+        <h1>Allthink Lessons</h1>
+
+        <div class="tr">
+
+            <div class="sidetools sideup">
+                <img src="/{{ avatar_dir }}" class="sidepic">
+            </div>
+
+            <div style="position:absolute;left:200px;top:90px;right:0;bottom:0;z-index:2">
+
+                {% if status == 'noError' %}
+                    <div class="msg success">Your profile has been updated.</div>
+                {% endif %}
+
+                {% if status == 'hasError' %}
+                    <div class="msg error">There were some errors with your submission</div>
+                {% endif %}
+                <form method="post" id="inform" action=".">
+                    {% csrf_token %}
+                    <div class="table inform inhelp">
+                        <div class="toprow">
+                            <div class="title">Edit Account</div>
+                        </div>
+
+                        <div class="row alt text ">
+                            <b>{{ form.fullname.errors }} </b>
+                            <div class="name "> <label for="id_fullname">  Your Name </label></div>
+                            <div class="field" style="">{{ form.fullname }}</div>
+                            <div class="help">Enter your full name</div>
+                        </div>
+
+                        <div class="row alt text ">
+                            <b>{{ form.username.errors }} </b>
+                            <div class="name "> <label for="id_username"> Choose Username </label> </div>
+                            <div class="field" style="">{{ form.username }}</div>
+                            <div class="help">Choose username, letters and numbers only. Students will see this.</div>
+                        </div>
+
+                        <div class="row  text ">
+                            <b>{{ form.email.errors }} </b>
+                            <div class="name "> <label for="id_email"> Your Email </label></div>
+                            <div class="field" style="">{{ form.email }}</div>
+                            <div class="help">Enter your OFFICIAL work email address</div>
+                        </div>
+
+                    </div>
+                    <div class="table inform inhelp">
+                        <div class="row  text ">
+                            <b>{{ form.password1.errors }} </b>
+                            <div class="name"> <label for="id_password">Choose Password</label> </div>
+                            <div class="field" >{{ form.password1 }}</div>
+                            <div class="help">Enter a new password (or leave blank to keep same)</div>
+                        </div>
+
+                        <div class="row alt text ">
+                            <b>{{ form.password2.errors }} </b>
+                            <div class="name"> <label for="id_password2">Confirm Password </label> </div>
+                            <div class="field">{{ form.password2 }}</div>
+                            <div class="help">Enter above password (or leave blank to keep same)</div>
+                        </div>
+                    </div>
+                    <div class="table inform inhelp">
+                        <div class="toprow">
+                            <div class="title">Security</div>
+                        </div>
+
+                        <div class="row  text ">
+                            <b>{{ form.password0.errors }} </b>
+                            <div class="name"> <label for="id_password0">Current Password</label> </div>
+                            <div class="field" >{{ form.password0 }}</div>
+                            <div class="help">For security, enter your current password</div>
+                        </div>
+
+                        <div class="row  submit">
+                            <div class="name">&nbsp;</div>
+                            <div class="field">
+                                <input type="submit" name="submit" value="Submit" id="formsubmit" class="submit">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--
+
+-->
+
+
+</body>
+</html>

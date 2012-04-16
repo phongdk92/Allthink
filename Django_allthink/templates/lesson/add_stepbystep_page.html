@@ -70,65 +70,363 @@
             <div class="options over">
                 <a href="javascript:history.go(-1)">« Back</a>
             </div>
-
             <form method="post" id="inform">
-                {% csrf_token %}
-                <div class="inform">
-                    <div class="toprow">
-                        <div class="title">Step-by-Step</div>
-                    </div>
+            {% csrf_token %}
+            <div class="inform">
+            <div class="toprow">
+                <div class="title">Step-by-Step</div>
+            </div>
 
 
-                    <div class="row text ">
-                        <div class="name">Page Title</div>
-                        <div class="field">{{ form.pageTitle }}</div>
-                        <div class="help"></div>
-                    </div>
+            <div class="row text ">
+                <div class="name">Page Title</div>
+                <div class="field">{{ form.pageTitle }}</div>
+                <div class="help"></div>
+            </div>
 
-                    <div class="row area ">
-                        <div class="name">Prompt</div>
-                        <div class="field">{{ form.promt }}</div>
-                        <div class="help">Enter a prompt, such as <i>Solve 2x+1=5</i></div>
-                    </div>
-
-
-                    <input type="hidden" name="itemid" value="300000000245518">
+            <div class="row area ">
+                <div class="name">Prompt</div>
+                <div class="field">{{ form.promt }}</div>
+                <div class="help">Enter a prompt, such as <i>Solve 2x+1=5</i></div>
+            </div>
 
 
-                    <input type="hidden" name="pageid" value="">
+            <div class="toprow">
+                <div class="title">Step / Explanation</div>
+            </div>
 
 
-                    <div class="toprow">
-                        <div class="title">Step / Explanation</div>
-                    </div>
+            <div class="multi">
 
-
-                    <div class="multi">
-
-                        <div class="row text ">
-                            <div class="name">Step 01</div>
-                            <div class="field">{{ form.step }}</div>
-                            <div class="help"></div>
-                        </div>
-
-                        <div class="row text ">
-                            <div class="name">Explanation</div>
-                            <div class="field">{{ form.explain }}</div>
-                            <div class="help"></div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row submit" style="border:0">
-                        <div class="name">&nbsp;</div>
-                        <div class="field">
-                            <input type="submit" name="submit" value="Submit" class="button" id="formsubmit">
-                            <input type="button" value="Cancel" onclick="history.go(-1)" class="button">
-                        </div>
-                    </div>
+                <div class="row text ">
+                    <div class="name">Step 01</div>
+                    <div class="field">{{ form.step1 }}</div>
+                    <div class="help"></div>
                 </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain1 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 02</div>
+                    <div class="field">{{ form.step2 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain2 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 03</div>
+                    <div class="field">{{ form.step3 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain3 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 04</div>
+                    <div class="field">{{ form.step4 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain4 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 05</div>
+                    <div class="field">{{ form.step5 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain5 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 06</div>
+                    <div class="field">{{ form.step6 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain6 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 07</div>
+                    <div class="field">{{ form.step7 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain7 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 08</div>
+                    <div class="field">{{ form.step8 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain8 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 09</div>
+                    <div class="field">{{ form.step9 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain9 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 10</div>
+                    <div class="field">{{ form.step10 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain10 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 11</div>
+                    <div class="field">{{ form.step11 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain11 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 12</div>
+                    <div class="field">{{ form.step12 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain12 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 13</div>
+                    <div class="field">{{ form.step13 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain13 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 14</div>
+                    <div class="field">{{ form.step14 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain14 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 15</div>
+                    <div class="field">{{ form.step15 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain15 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 16</div>
+                    <div class="field">{{ form.step16 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain16 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 17</div>
+                    <div class="field">{{ form.step17 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain17 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 18</div>
+                    <div class="field">{{ form.step18 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain18 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 19</div>
+                    <div class="field">{{ form.step19 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain19 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+            <div class="multi">
+
+                <div class="row text ">
+                    <div class="name">Step 20</div>
+                    <div class="field">{{ form.step20 }}</div>
+                    <div class="help"></div>
+                </div>
+
+                <div class="row text ">
+                    <div class="name">Explanation</div>
+                    <div class="field">{{ form.explain20 }}</div>
+                    <div class="help"></div>
+                </div>
+
+            </div>
+
+
+            <div class="row submit" style="border:0">
+                <div class="name">&nbsp;</div>
+                <div class="field">
+                    <input type="submit" name="submit" value="Submit" class="button" id="formsubmit">
+                    <input type="button" value="Cancel" onclick="history.go(-1)" class="button">
+                </div>
+            </div>
+            </div>
             </form>
+
 
         </div>
 

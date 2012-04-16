@@ -1,18 +1,12 @@
 import re
 from django.contrib.auth.models import  User
 from django.db import models
-from django.db.models.signals import post_save
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User)
     typeUser = models.CharField(max_length=20)
     fullname = models.CharField(max_length=30)
-
-#def create_user_profile(sender, instance, created, **kwargs):
-#    if created:
-#        UserProfile.objects.create(user=instance)
-#
-#post_save.connect(create_user_profile, sender=User)
+    avatar = models.FileField(upload_to= 'media/avatar')
 
 class Lesson(models.Model):
     user = models.ForeignKey(UserProfile)
@@ -33,6 +27,22 @@ class Lesson(models.Model):
     subject = models.CharField(max_length=30, choices = SUBJECT)
     description = models.TextField(max_length=1000)
 
+class LessonReference(models.Model):
+    user = models.OneToOneField(UserProfile, primary_key=True)
+    lessons = models.ManyToManyField(Lesson)
+
+
+class File_doc(models.Model) :
+    user = models.ForeignKey(UserProfile)
+    file_name = models.CharField(max_length=255)
+    file = models.FileField(upload_to= 'DB/documents')
+
+
+class File_img(models.Model) :
+    user = models.ForeignKey(UserProfile)
+    file_name = models.CharField(max_length=255)
+    file = models.FileField(upload_to= 'DB/images')
+
 class Video(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
@@ -48,7 +58,7 @@ class Video(models.Model):
 
 class Document(models.Model):
     lesson = models.ForeignKey(Lesson)
-    file_doc = models.CharField(max_length=10)
+    file_doc = models.CharField(max_length=255)
     pageTitle = models.CharField(max_length=100)
     text = models.TextField(max_length=1000)
 
@@ -56,7 +66,7 @@ class Document(models.Model):
 class Image(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
-    image = models.CharField(max_length=10)
+    file_image = models.CharField(max_length=255)
     text = models.TextField(max_length=1000)
 
 
@@ -64,6 +74,9 @@ class StepbyStep(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
     promt = models.CharField(max_length=300)
+
+class Step(models.Model):
+    sts = models.ForeignKey(StepbyStep)
     step = models.CharField(max_length=100)
     explain = models.CharField(max_length=100)
 
@@ -72,12 +85,3 @@ class Text(models.Model):
     pageTitle = models.CharField(max_length=100)
     text = models.TextField(max_length=1000)
 
-class File_doc(models.Model) :
-    user = models.ForeignKey(UserProfile)
-    file_name = models.CharField(max_length=255)
-    file = models.FileField(upload_to= 'DB/documents')
-
-class File_img(models.Model) :
-    user = models.ForeignKey(UserProfile)
-    file_name = models.CharField(max_length=255)
-    file = models.FileField(upload_to= 'DB/images')

@@ -63,7 +63,7 @@
 
             <div id="links">
                 <a href="/user/{{ username }}/" class="nav">
-                    <img src="/media/images/user_128.gif"> {{ fullname }} </a>
+                    <img src="/{{ avatar_dir }}"> {{ fullname }}</a>
                 <a href="/logout/" class="nav">
                     Logout </a>
             </div>
@@ -75,10 +75,10 @@
         <div class="mainbox lesson">
 
             <div class="table wide top">
-
+                {% if typeUser == 'teacher' %}
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/edit" class="stat"><b>Edit</b>
                     Lesson</a>
-
+                {% endif %}
 
                 <h1><a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1">{{ lesson.lessonTitle }}</a></h1>
                 {{ lesson.description }}
@@ -122,21 +122,23 @@
                 {% if page == '1' %}
                     {% if videos %}
                         {% for video in videos %}
-                            <div class="lessonbody">
-                                <!-- YOUTUBE -->
-                                <h1>{{ video.pageTitle }}</h1>
-                                <object style="height: 400px; width: 650px" width="650" height="400">
-                                    <param name="movie"
-                                               value="http://www.youtube.com/v/{{ video.youtube }}?version=2&amp;enablejsapi=1&amp;fs=1&amp;hd=1&amp;playerapiid=ytplayer&amp;rel=0&amp;showsearch=0">
-                                    <param name="allowFullScreen" value="true">
-                                    <param name="allowScriptAccess" value="always">
-                                    <embed src="http://www.youtube.com/v/{{ video.youtube }}?version=2&amp;autoplay=0&amp;enablejsapi=1&amp;fs=1&amp;hd=1&amp;playerapiid=ytplayer&amp;rel=0&amp;showsearch=0"
-                                               type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always"
-                                               width="650" height="400">
-                                </object>
-                                <!-- VIMEO -->
+                            <div class="row select ">
+                                <div class="lessonbody">
+                                    <!-- YOUTUBE -->
+                                    <h1>{{ video.pageTitle }}</h1>
+                                    <object style="height: 400px; width: 650px" width="650" height="400">
+                                        <param name="movie"
+                                                   value="http://www.youtube.com/v/{{ video.youtube }}?version=2&amp;enablejsapi=1&amp;fs=1&amp;hd=1&amp;playerapiid=ytplayer&amp;rel=0&amp;showsearch=0">
+                                        <param name="allowFullScreen" value="true">
+                                        <param name="allowScriptAccess" value="always">
+                                        <embed src="http://www.youtube.com/v/{{ video.youtube }}?version=2&amp;autoplay=0&amp;enablejsapi=1&amp;fs=1&amp;hd=1&amp;playerapiid=ytplayer&amp;rel=0&amp;showsearch=0"
+                                                   type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always"
+                                                   width="650" height="400">
+                                    </object>
+                                    <!-- VIMEO -->
+                                </div>
                             </div>
-                            <div class="lessonbody">{{ video.text }}</div>
+                            <div class="lessontext">{{ video.text }}</div>
                         {% endfor %}
                     {% endif %}
                 {% endif %}
@@ -144,9 +146,13 @@
                 {% if page == '2' %}
                     {% if docs %}
                         {% for doc in docs %}
-                            <div class="lessonbody">
+                            <div class="row select ">
+                                <div class="lessonbody">
+                                    <a href="{{ doc.file_doc }}" class="linkdownload">
+                                        Download Document </a>
+                                </div>
+                                <div class="lessontext"> {{ doc.text }}</div>
                             </div>
-                            <div class="lessonbody">{{ doc.text }}</div>
                         {% endfor %}
                     {% endif %}
                 {% endif %}
@@ -155,10 +161,12 @@
                 {% if page == '3' %}
                     {% if images %}
                         {% for image in images %}
-                            <div class="lessonbody">
-
+                            <div class="row select ">
+                                <div class="lessonbody">
+                                    <img src="/{{ image.file_image }}" >
+                                </div>
+                                <div class="lessontext">{{ image.text }}</div>
                             </div>
-                            <div class="lessonbody">{{ image.text }}</div>
                         {% endfor %}
                     {% endif %}
                 {% endif %}
@@ -166,19 +174,34 @@
                 <!-- StepByStep -->
                 {% if page == '4' %}
                     {% if steps %}
-                        {% for step in steps %}
-                            <div class="lessonbody">
-
+                            <div class="row select ">
+                                <div class="lessonbody">
+                                    {% for eachstep in eachsteps %}
+                                        <div class="multi">
+                                            <div class="row text">
+                                                <div class="name">Step</div>
+                                                <div class="field">{{eachstep.step}}</div>
+                                                <div class="help"></div>
+                                            </div>
+                                            <div class="row text">
+                                                <div class="name">Explaination</div>
+                                                <div class="field">{{ eachstep.explain }}</div>
+                                                <div class="help"></div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="lessontext">{{ step.text }}</div>
                             </div>
-                            <div class="lessonbody">{{ step.text }}</div>
-                        {% endfor %}
                     {% endif %}
                 {% endif %}
                 <!-- Text -->
                 {% if page == '5' %}
                     {% if texts %}
                         {% for text in texts %}
-                            <div class="lessonbody">{{ text.text }}</div>
+                            <div class="row select ">
+                                <div class="lessonbody"> {{ text.text }} </div>
+                            </div>
                         {% endfor %}
                     {% endif %}
                 {% endif %}

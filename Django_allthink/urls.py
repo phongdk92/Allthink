@@ -10,9 +10,13 @@ media = os.path.join(
     os.path.dirname(__file__), 'media'
 )
 
+db_media = os.path.join(
+    os.path.dirname(__file__), 'DB/images'
+)
+
 urlpatterns = patterns('',
 
-    # Browsing
+    # Browsing for Teacher
     (r'^$', main_page),
     (r'^user/(\w+)/$', user_page),
     (r'^user/(\w+)/lesson/create/$', create_lesson),
@@ -39,6 +43,9 @@ urlpatterns = patterns('',
     (r'^user/(\w+)/lesson/(\w+)/step/(\w+)/delete/$', delete_step),
     (r'^user/(\w+)/lesson/(\w+)/text/(\w+)/delete/$', delete_text),
 
+    # Browsing for student
+    (r'^user/(\w+)/lesson/(\w+)/addref/$', student_addref),
+    (r'^user/(\w+)/lesson/(\w+)/removeref/$', student_removeref),
     # Session management
     (r'^login/$', login),
     (r'^logout/$', logout_page),
@@ -46,7 +53,12 @@ urlpatterns = patterns('',
          { 'document_root': site_media }),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve',
          {'document_root': media}),
+    (r'^DB/images/(?P<path>.*)$', 'django.views.static.serve',
+         {'document_root': db_media}),
     (r'^signup/$', register_page),
     (r'^signup/teacher/$', teacher_register_page),
+    (r'^signup/student/$', student_register_page),
+    (r'^user/(\w+)/account/$', user_edit_page),
+    (r'^user/(\w+)/pic/$', user_avatar_page),
     (r'^files/$', add_doc),
 )
