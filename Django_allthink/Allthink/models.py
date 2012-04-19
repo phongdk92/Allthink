@@ -25,7 +25,7 @@ class Lesson(models.Model):
         ('physic', 'Physic')
     )
     subject = models.CharField(max_length=30, choices = SUBJECT)
-    description = models.TextField(max_length=1000)
+    description = models.TextField(max_length=2000)
 
 class LessonReference(models.Model):
     user = models.OneToOneField(UserProfile, primary_key=True)
@@ -47,7 +47,7 @@ class Video(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
     url = models.URLField()
-    text = models.TextField(max_length=1000)
+    text = models.TextField(max_length=2000)
     def youtube(self):
         regex = re.compile(r"^(http://)?(www\.)?(youtube\.com/watch\?v=)?(?P<id>[A-Za-z0-9\-=_]{11})")
         match = regex.match(self.url)
@@ -60,15 +60,14 @@ class Document(models.Model):
     lesson = models.ForeignKey(Lesson)
     file_doc = models.CharField(max_length=255)
     pageTitle = models.CharField(max_length=100)
-    text = models.TextField(max_length=1000)
+    text = models.TextField(max_length=2000)
 
 
 class Image(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
     file_image = models.CharField(max_length=255)
-    text = models.TextField(max_length=1000)
-
+    text = models.TextField(max_length=2000)
 
 class StepbyStep(models.Model):
     lesson = models.ForeignKey(Lesson)
@@ -83,5 +82,5 @@ class Step(models.Model):
 class Text(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
-    text = models.TextField(max_length=1000)
+    text = models.TextField(max_length=2000)
 

@@ -4,7 +4,7 @@ from django.contrib import auth
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.core.files.base import File
-from django.http import  HttpResponseRedirect, Http404
+from django.http import  HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
 from Allthink.forms import *
@@ -237,19 +237,25 @@ def edit_lesson(request, username, id) :
     return render_to_response('lesson/lesson_edit.html',variables)
 
 @login_required
-def view_lesson(request, username, id, page) :
+def view_lesson(request, username, id, page, stepid) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
     lesson = get_object_or_404(Lesson, id = id)
     videos = lesson.video_set.all()
     docs = lesson.document_set.all()
     images = lesson.image_set.all()
-    steps = lesson.stepbystep_set.all()
-    eachstep1 = Step.objects.all()
-    eachsteps = []
-    for eachstep in eachstep1:
-        if eachstep.step != "" :
-            eachsteps.append(eachstep)
+    old_id = stepid
+    if stepid == '0' :
+        stepid = '1'
+    step = get_object_or_404(StepbyStep, id = stepid)
+    eachsteps = step.step_set.all()
+    stepbysteps = lesson.stepbystep_set.all()
+    steps = ''
+    explains = ''
+    for eachstep in eachsteps:
+        if eachstep.step != '' :
+            steps = steps + '##' + eachstep.step
+            explains = explains + '##' + eachstep.explain
 
     texts = lesson.text_set.all()
     variables = RequestContext ( request,{
@@ -262,9 +268,12 @@ def view_lesson(request, username, id, page) :
         'videos' : videos,
         'docs' : docs,
         'images' : images,
+        'stepbysteps' : stepbysteps,
+        'step': step,
         'steps' : steps,
         'texts' : texts,
-        'eachsteps' : eachsteps,
+        'explains' : explains,
+        'stepid' : old_id,
         })
     return render_to_response('lesson/lesson_view.html',variables)
 
@@ -287,12 +296,7 @@ def edit_lesson_info(request, username, id) :
             lesson.subject = form.cleaned_data['subject']
             lesson.description = form.cleaned_data['description']
             lesson.save()
-            variables = RequestContext ( request,{
-                'username' : username,
-                'fullname' : user_profile.fullname,
-                'lesson'   : lesson
-            })
-            return render_to_response('lesson/lesson_edit.html', variables)
+            return HttpResponseRedirect('/user/'+username+'/lesson/'+id+'/edit')
 
     form = CreateLesson(initial={
         'lessonTitle' : lesson.lessonTitle,
@@ -710,18 +714,18 @@ def delete_video(request, username, id_lesson, id_video) :
 @login_required
 def delete_doc(request, username, id_lesson, id_doc) :
     doc = get_object_or_404(Document, id = id_doc)
-    file = get_object_or_404(File_doc, file_name = doc.file_doc)
-    file.file.delete()
-    file.delete()
+#    file = get_object_or_404(File_doc, file_name = doc.file_doc)
+#    file.file.delete()
+#    file.delete()
     doc.delete()
     return HttpResponseRedirect('/user/'+username+'/lesson/'+id_lesson+'/edit/')
 
 @login_required
 def delete_image(request, username, id_lesson, id_image) :
     image = get_object_or_404(Image, id = id_image)
-    file = get_object_or_404(File_img, file_name = image.file_image)
-    file.file.delete()
-    file.delete()
+#    file = get_object_or_404(File_img, file_name = image.file_image)
+#    file.file.delete()
+#    file.delete()
     image.delete()
     return HttpResponseRedirect('/user/'+username+'/lesson/'+id_lesson+'/edit/')
 
@@ -756,3 +760,14 @@ def student_removeref(request, username, lesson_id) :
     lesson_ref.lessons.remove(lesson)
     lesson_ref.save()
     return HttpResponseRedirect('/user/'+username)
+
+@login_required
+def download_doc_file(request, username, id_doc) :
+    doc = get_object_or_404(Document, id = id_doc)
+    file = get_object_or_404(File_doc, file_name = doc.file_doc)
+    download_name = file.file_name
+    download = File(file.file, 'r')
+    response = HttpResponse(download.read())
+    response['Content-Disposition'] = "attachment;filename=%s"%download_name
+    response['Content-Length']      = os.path.getsize(file.file_name)
+    return response

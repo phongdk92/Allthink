@@ -84,13 +84,13 @@ class CreateLesson(forms.Form) :
         ('physic', 'Physic')
     )
     subject = forms.ChoiceField(label="Subject", widget= Select  , choices = SUBJECT)
-    description = forms.CharField(label="description", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=1000)
+    description = forms.CharField(label="description", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=2000)
 
 
 class AddVideoForm(forms.Form):
     pageTitle = forms.CharField(label= 'pageTitle', max_length=100)
     url = forms.URLField(label='url')
-    text = forms.CharField(label="text", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=1000 , required= False)
+    text = forms.CharField(label="text", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=2000 , required= False)
 
 
 class AddDocumentForm(forms.Form):
@@ -99,7 +99,7 @@ class AddDocumentForm(forms.Form):
         ('non', 'non'),
         )
     selectFile = forms.ChoiceField(label="selectFile", widget= Select  , choices = FILES, required= False)
-    text = forms.CharField(label="text", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=1000, required= False)
+    text = forms.CharField(label="text", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=2000, required= False)
 
 
 class AddImageForm(forms.Form):
@@ -107,7 +107,7 @@ class AddImageForm(forms.Form):
     FILES = (
         )
     selectFile = forms.ChoiceField(label="selectFile", widget= Select  , choices = FILES, required= False)
-    text = forms.CharField(label="text", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=1000, required= False)
+    text = forms.CharField(label="text", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=2000, required= False)
 
 class AddStepbyStepForm(forms.Form):
     pageTitle = forms.CharField(label= 'pageTitle', max_length=100)
@@ -155,7 +155,7 @@ class AddStepbyStepForm(forms.Form):
 
 class AddTextForm(forms.Form):
     pageTitle = forms.CharField(label= 'pageTitle', max_length=100)
-    text = forms.CharField(label="text", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=1000, required= False)
+    text = forms.CharField(label="text", widget= Textarea(attrs={'cols': 70, 'rows': 5, 'style' : 'resize: none;'}), max_length=2000, required= False)
 
 class FileUploadForm(forms.Form) :
     uploadFile = forms.FileField(

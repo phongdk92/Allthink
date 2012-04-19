@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{{ lesson.Title }}</title>
+    <title>View - {{ lesson.lessonTitle }}</title>
 
     <meta name="description" content="{{ lesson.description }}">
     <link rel="stylesheet" type="text/css" href="/site_media/allthink.css">
@@ -57,158 +57,213 @@
 
 
 <div id="wrapper">
-    <div id="navwrapper">
-        <div id="nav">
-            <a href="/" id="logo">Allthink</a>
+<div id="navwrapper">
+    <div id="nav">
+        <a href="/user/{{ username }}/" id="logo">Allthink</a>
 
-            <div id="links">
-                <a href="/user/{{ username }}/" class="nav">
-                    <img src="/{{ avatar_dir }}"> {{ fullname }}</a>
-                <a href="/logout/" class="nav">
-                    Logout </a>
-            </div>
+        <div id="links">
+            <a href="/user/{{ username }}/" class="nav">
+                <img src="/{{ avatar_dir }}"> {{ fullname }}</a>
+            <a href="/logout/" class="nav">
+                Logout </a>
         </div>
     </div>
-    <div id="main">
+</div>
+<div id="main">
 
 
-        <div class="mainbox lesson">
+    <div class="mainbox lesson">
 
-            <div class="table wide top">
-                {% if typeUser == 'teacher' %}
+        <div class="table wide top">
+            {% if typeUser == 'teacher' %}
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/edit" class="stat"><b>Edit</b>
                     Lesson</a>
-                {% endif %}
+            {% endif %}
 
-                <h1><a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1">{{ lesson.lessonTitle }}</a></h1>
-                {{ lesson.description }}
+            <h1><a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0">{{ lesson.lessonTitle }}</a></h1>
+            {{ lesson.description }}
+        </div>
+
+        <div class="sidebar">
+            <div class="table">
+                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
+                        {% if page == '1' %} class="row active" {% else %} class="row " {% endif %}>
+                    <img src="/media/images/video.png"> Videos
+                </a>
             </div>
-
-            <div class="sidebar">
-                <div class="table">
-                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1"
-                       {% if page == '1' %} class="row active" {% else %} class="row " {% endif %}>
-                        <img src="/media/images/video.png"> Videos
-                         </a>
-                </div>
-                <div class="table">
-                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/2"
-                       {% if page == '2' %} class="row active" {% else %} class="row " {% endif %}>
-                        <img src="/media/images/copy.png"> Document
-                    </a>
-                </div>
-                <div class="table">
-                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/3"
+            <div class="table">
+                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/2/0"
+                        {% if page == '2' %} class="row active" {% else %} class="row " {% endif %}>
+                    <img src="/media/images/copy.png"> Document
+                </a>
+            </div>
+            <div class="table">
+                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/3/0"
                         {% if page == '3' %} class="row active" {% else %} class="row " {% endif %}>
-                        <img src="/media/images/stats.png">  Images
-                    </a>
-                </div>
-                <div class="table">
-                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4"
-                        {% if page == '4' %} class="row active" {% else %} class="row " {% endif %}>
-                        <img src="/media/images/notepad.png">  Step by step
-                    </a>
-                </div>
-                <div class="table">
-                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/5"
-                        {% if page == '5' %} class="row active" {% else %} class="row " {% endif %}>
-                        <img src="/media/images/web.png"> Text
-                    </a>
-                </div>
+                    <img src="/media/images/stats.png"> Images
+                </a>
             </div>
-
-            <div class="table main">
-                <!-- VIDEO -->
-                {% if page == '1' %}
-                    {% if videos %}
-                        {% for video in videos %}
-                            <div class="row select ">
-                                <div class="lessonbody">
-                                    <!-- YOUTUBE -->
-                                    <h1>{{ video.pageTitle }}</h1>
-                                    <object style="height: 400px; width: 650px" width="650" height="400">
-                                        <param name="movie"
-                                                   value="http://www.youtube.com/v/{{ video.youtube }}?version=2&amp;enablejsapi=1&amp;fs=1&amp;hd=1&amp;playerapiid=ytplayer&amp;rel=0&amp;showsearch=0">
-                                        <param name="allowFullScreen" value="true">
-                                        <param name="allowScriptAccess" value="always">
-                                        <embed src="http://www.youtube.com/v/{{ video.youtube }}?version=2&amp;autoplay=0&amp;enablejsapi=1&amp;fs=1&amp;hd=1&amp;playerapiid=ytplayer&amp;rel=0&amp;showsearch=0"
-                                                   type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always"
-                                                   width="650" height="400">
-                                    </object>
-                                    <!-- VIMEO -->
-                                </div>
-                            </div>
-                            <div class="lessontext">{{ video.text }}</div>
-                        {% endfor %}
-                    {% endif %}
-                {% endif %}
-                <!-- DOCUMENT -->
-                {% if page == '2' %}
-                    {% if docs %}
-                        {% for doc in docs %}
-                            <div class="row select ">
-                                <div class="lessonbody">
-                                    <a href="{{ doc.file_doc }}" class="linkdownload">
-                                        Download Document </a>
-                                </div>
-                                <div class="lessontext"> {{ doc.text }}</div>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endif %}
-
-                <!-- IMAGES -->
-                {% if page == '3' %}
-                    {% if images %}
-                        {% for image in images %}
-                            <div class="row select ">
-                                <div class="lessonbody">
-                                    <img src="/{{ image.file_image }}" >
-                                </div>
-                                <div class="lessontext">{{ image.text }}</div>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endif %}
-
-                <!-- StepByStep -->
-                {% if page == '4' %}
-                    {% if steps %}
-                            <div class="row select ">
-                                <div class="lessonbody">
-                                    {% for eachstep in eachsteps %}
-                                        <div class="multi">
-                                            <div class="row text">
-                                                <div class="name">Step</div>
-                                                <div class="field">{{eachstep.step}}</div>
-                                                <div class="help"></div>
-                                            </div>
-                                            <div class="row text">
-                                                <div class="name">Explaination</div>
-                                                <div class="field">{{ eachstep.explain }}</div>
-                                                <div class="help"></div>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                                <div class="lessontext">{{ step.text }}</div>
-                            </div>
-                    {% endif %}
-                {% endif %}
-                <!-- Text -->
-                {% if page == '5' %}
-                    {% if texts %}
-                        {% for text in texts %}
-                            <div class="row select ">
-                                <div class="lessonbody"> {{ text.text }} </div>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endif %}
+            <div class="table">
+                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/0"
+                        {% if page == '4' %} class="row active" {% else %} class="row " {% endif %}>
+                    <img src="/media/images/notepad.png"> Step by step
+                </a>
+            </div>
+            <div class="table">
+                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/5/0"
+                        {% if page == '5' %} class="row active" {% else %} class="row " {% endif %}>
+                    <img src="/media/images/web.png"> Text
+                </a>
             </div>
         </div>
 
+        <div class="table main">
+            <!-- VIDEO -->
+            {% if page == '1' %}
+                {% if videos %}
+                    {% for video in videos %}
+                        <div class="row select ">
+                            <div class="lessonbody">
+                                <!-- YOUTUBE -->
+                                <h1 style="text-align-last: center;">{{ video.pageTitle }}</h1>
+                                <object style="height: 400px; width: 650px" width="650" height="400">
+                                    <param name="movie"
+                                           value="http://www.youtube.com/v/{{ video.youtube }}?version=2&amp;enablejsapi=1&amp;fs=1&amp;hd=1&amp;playerapiid=ytplayer&amp;rel=0&amp;showsearch=0">
+                                    <param name="allowFullScreen" value="true">
+                                    <param name="allowScriptAccess" value="always">
+                                    <embed src="http://www.youtube.com/v/{{ video.youtube }}?version=2&amp;autoplay=0&amp;enablejsapi=1&amp;fs=1&amp;hd=1&amp;playerapiid=ytplayer&amp;rel=0&amp;showsearch=0"
+                                           type="application/x-shockwave-flash" allowfullscreen="true"
+                                           allowscriptaccess="always"
+                                           width="650" height="400">
+                                </object>
+                                <!-- VIMEO -->
+                            </div>
+                        </div>
+                        <div class="lessontext">{{ video.text }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+            <!-- DOCUMENT -->
+            {% if page == '2' %}
+                {% if docs %}
+                    {% for doc in docs %}
+                        <div class="row select ">
+                            <h3 style="color: #1999e3;"> {{ doc.pageTitle }} </h3>
+                            <div class="lessonbody">
+                                <a href="/user/{{ username }}/download/{{ doc.id }}" class="linkdownload">
+                                    Download Document </a>
+                            </div>
+                            <div class="lessontext"> {{ doc.text }}</div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+
+            <!-- IMAGES -->
+            {% if page == '3' %}
+                {% if images %}
+                    {% for image in images %}
+                        <div class="row select ">
+                            <h3 style="color: #1999e3;style="text-align-last: center;""> {{ image.pageTitle }} </h3>
+                            <div class="lessonbody">
+                                <img src="/{{ image.file_image }}">
+                            </div>
+                            <div class="lessontext">{{ image.text }}</div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+
+            <!-- StepByStep -->
+            {% if page == '4' %}
+                {% if stepid == '0' %}
+                    {% for step in stepbysteps %}
+                        <div class="table">
+                            <h4>
+                            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/{{ step.id }}" class="row ">
+                                <img src="/media/images/notepad.png" style="width:15px;"> {{ step.pageTitle }}
+                            </a>
+                            </h4>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% if step %}
+                        <div class="row select ">
+                            <div class="lessonbody">
+                                <script type="text/javascript">
+                                    function trim(str) {
+                                        str = str.replace(/^\s+/, '');
+                                        for (var i = str.length - 1; i >= 0; i--) {
+                                            if (/\S/.test(str.charAt(i))) {
+                                                str = str.substring(0, i + 1);
+                                                break;
+                                            }
+                                        }
+                                        return str;
+                                    }
+                                    var str1 = "{{ explains }}";
+                                    var str2 = "{{ steps }}";
+                                    str1 = trim(str1);
+                                    str2 = trim(str2);
+                                    var i = 0;
+                                    var st1 = str1.split('##');
+                                    var st2 = str2.split('##');
+                                    var length = st1.length;
+                                    function execute(i) {
+                                        document.getElementById('NextStep').innerHTML = st2[i];
+                                        document.getElementById('PrevStep').innerHTML = st1[i];
+                                        document.getElementById('stepnumber').innerHTML = 'Step' + '    ' + (i).toString() + ' : ';
+                                        document.getElementById('explainnumber').innerHTML = 'Explain' + ' ' + (i).toString() + ' : ';
+                                    }
+
+                                    function Next() {
+                                        i++;
+                                        if (i >= length) {
+                                            i = 1;
+                                        }
+                                        execute(i);
+                                    }
+                                    function Previous() {
+                                        i--;
+                                        if (i <= 0) {
+                                            i = length - 1;
+                                        }
+                                        execute(i);
+                                    }
+
+                                </script>
+                                <div class="row select ">
+                                    <p><b id="stepnumber">Step and explaination click next to begin</b><b
+                                            id='NextStep'></b></p>
+                                </div>
+                                <div class="row select ">
+                                    <p><b id="explainnumber"></b></b><b id='PrevStep'></b></p>
+                                </div>
+                                <div class='options'>
+                                    <a onclick='Previous()' value='Previous' style="cursor: pointer"> Previous </a>
+                                    <a onclick='Next()' value='Next' style="cursor: pointer"> Next </a>
+                                </div>
+                            </div>
+                            <div class="lessontext">{{ step.text }}</div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            <!-- Text -->
+            {% if page == '5' %}
+                {% if texts %}
+                    {% for text in texts %}
+                        <div class="row select ">
+                            <h2 style="color: #107fc9;style="text-align-last: center;"">{{ text.pageTitle }} </h2>
+                            <div class="lessonbody"> {{ text.text }} </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+        </div>
     </div>
+
+</div>
 </div>
 
 <!--

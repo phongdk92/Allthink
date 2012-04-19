@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Allthink - Edit {{ lesson.lessonTitle }}</title>
+    <title>Lesson Edit - {{ lesson.lessonTitle }}</title>
 
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="/site_media/allthink.css">
@@ -55,7 +55,7 @@
 <div id="wrapper">
     <div id="navwrapper">
         <div id="nav">
-            <a href="/" id="logo">Allthink</a>
+            <a href="/user/{{ username }}/" id="logo">Allthink</a>
 
             <div id="links">
                 <a href="/user/{{ username }}/" class="nav">
@@ -100,7 +100,7 @@
                                 {{ video.pageTitle }} </a>
 
                             <div class="ops">
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0" target="_top">View</a> &nbsp;
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/video/{{ video.id }}/delete/">Delete</a>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                                 {{ image.pageTitle }} </a>
 
                             <div class="ops">
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/3" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/3/0" target="_top">View</a> &nbsp;
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/image/{{ image.id }}/delete/">Delete</a>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                                 {{ doc.pageTitle }} </a>
 
                             <div class="ops">
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/2" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/2/0" target="_top">View</a> &nbsp;
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/doc/{{ doc.id }}/delete/">Delete</a>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                                 {{ step.pageTitle }} </a>
 
                             <div class="ops">
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/0" target="_top">View</a> &nbsp;
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/step/{{ step.id }}/delete/">Delete</a>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                                 {{ text.pageTitle }} </a>
 
                             <div class="ops">
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/5" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/5/0" target="_top">View</a> &nbsp;
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/text/{{ text.id }}/delete/">Delete</a>
                             </div>
                         </div>

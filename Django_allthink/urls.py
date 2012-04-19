@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     (r'^$', main_page),
     (r'^user/(\w+)/$', user_page),
     (r'^user/(\w+)/lesson/create/$', create_lesson),
-    (r'^user/(\w+)/lesson/(\w+)/view/(\w+)$', view_lesson),
+    (r'^user/(\w+)/lesson/(\w+)/view/(\w+)/(\w+)/$', view_lesson),
     (r'^user/(\w+)/lesson/(\w+)/edit/$', edit_lesson),
     (r'^user/(\w+)/lesson/(\w+)/delete/$', delete_lesson),
     (r'^user/(\w+)/lesson/(\w+)/edit-info/$', edit_lesson_info),
@@ -42,6 +42,9 @@ urlpatterns = patterns('',
     (r'^user/(\w+)/lesson/(\w+)/image/(\w+)/delete/$', delete_image),
     (r'^user/(\w+)/lesson/(\w+)/step/(\w+)/delete/$', delete_step),
     (r'^user/(\w+)/lesson/(\w+)/text/(\w+)/delete/$', delete_text),
+
+    # Download file
+    (r'^user/(\w+)/download/(\w+)/$', download_doc_file),
 
     # Browsing for student
     (r'^user/(\w+)/lesson/(\w+)/addref/$', student_addref),
