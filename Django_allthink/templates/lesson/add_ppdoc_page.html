@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>PowerPoint/Document - {{ lesson.lessonTitle }}</title>
+
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="/site_media/allthink.css">
+    <script type="text/javascript" src="/site_media/common.js"></script>
+
+    <style>.tooltiptrolol {
+        position: relative;
+        cursor: help;
+        text-decoration: none;
+    }
+
+    .tooltiptrolol span {
+        display: none;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        padding: 5px;
+        z-index: 100;
+        background: #000;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        line-width: 1000px;
+        text-indent: 0;
+        font: normal bold 10px/13px Tahoma, sans-serif;
+        white-space: nowrap;
+    }
+
+    span:hover.tooltiptrolol {
+        font-size: 99%;
+    }
+
+    .tooltiptrolol:hover span {
+        display: block;
+    }
+
+    .md img {
+        display: inline;
+    }
+
+    .rageface {
+        visibility: visible;
+    }</style>
+</head>
+<body>
+
+
+<div id="wrapper">
+    <div id="navwrapper">
+        <div id="nav">
+            <a href="/user/{{ username }}/" id="logo">Allthink</a>
+
+            <div id="links">
+                <a href="/user/{{ username }}/" class="nav">
+                    <img src="/{{ avatar_dir }}"> {{ fullname }} </a>
+                <a href="/logout/" class="nav">
+                    Logout </a>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+
+
+        <div class="mainbox">
+
+
+            <div class="options over">
+                <a href="javascript:history.go(-1)">« Back</a>
+            </div>
+
+
+            <form method="post" id="inform" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="inform simpleform">
+                    <div class="toprow">
+                        <div class="title">PowerPoint/Document</div>
+                    </div>
+
+
+                    <div class="row text ">
+                        <div class="name">Page Title</div>
+                        <div class="field">{{ form.pageTitle }}</div>
+                        <div class="help"></div>
+                    </div>
+
+                    <div class="row select ">
+                        <div class="name">Select Document</div>
+                        <div class="field">
+                            {{ form.selectFile }}
+                        </div>
+                        <div class="help"></div>
+                    </div>
+
+
+                    <div class="row text ">
+                        <div class="name">or Upload New</div>
+                        <div class="field">{{ fileUploadForm.uploadFile }}</div>
+                        <div class="help">Upload a document under 2.5Mb</div>
+                    </div>
+
+
+                    <div class="row area ">
+                        <div class="name">Text</div>
+                        <div class="field">{{ form.text }}</div>
+                        <div class="help">(Optional) You may add more information or questions below the document.</div>
+                    </div>
+
+
+                    <input type="hidden" name="itemid" value="300000000245518">
+
+
+                    <input type="hidden" name="pageid" value="">
+
+
+                    <div class="row submit" style="border:0">
+                        <div class="name">&nbsp;</div>
+                        <div class="field">
+                            <input type="submit" name="submit" value="Submit" class="button" id="formsubmit">
+                            <input type="button" value="Cancel" onclick="history.go(-1)" class="button">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <script type="text/javascript">
+            gid('input_title').focus();
+            gid('formsubmit').disabled = false;
+        </script>
+    </div>
+</div>
+
+<div id="pop" class="off">
+    <div id="poptop">
+        <a href="javascript:popoff();void(0)" id="popclose" title="Close"><img
+                src="./teacher_allthink_lesson_add_ppdoc_page_files/delete.png" alt="Close"></a>
+
+        <div id="poptitle">&nbsp;</div>
+    </div>
+    <div id="popc"></div>
+</div>
+
+<!--
+NULL
+ 
+-->
+
+
+</body>
+</html>

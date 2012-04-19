@@ -1,0 +1,203 @@
+
+.lesson img {
+	max-width:650px !important;
+}
+
+
+.lesson .top {
+	line-height:160%;
+	color:rgb(85,85,85);
+	font-size:8pt;
+}
+
+.lesson .top h1 {
+	font-size:16pt;
+	font-weight:normal;
+	font-family:Arial;
+	display:block;
+	margin:10px 0;
+	padding:0;
+}
+
+
+.lesson .main {
+	margin-bottom:0;
+}
+
+
+.lesson .lessonbody {
+	line-height:190%;
+	margin-bottom:20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lesson .lessontext {
+    float: left;
+    margin:10px;
+    font-size: 10pt;
+    font-family: Verdana;
+    color: #000000;
+}
+
+.lesson .linkdownload {
+    text-decoration: underline;
+    font-family: Tahoma;
+    font-style: inherit;
+    font-weight: bold;
+    font-size: 16pt;
+    color: #015e90;
+    cursor: pointer;
+}
+
+.lesson .sidebar {
+	padding:5px;
+	width:268px;
+}
+
+
+.lesson .sidebar .table a.row {
+	line-height:36px;
+	padding:0 9px;
+	width:250px;
+	height:36px;
+	position:relative;
+}
+
+.lesson .sidebar .table a.row.sub {
+	line-height:36px;
+	padding:0;
+	padding:0 0 0 32px;
+	width:236px;
+	height:36px;
+	font-size:8pt;
+	color:rgb(0,170,43);
+}
+
+
+.lesson .sidebar .table a.row.active {
+	background:rgb(213,230,255);
+}
+
+
+
+.lesson .sidebar .table a.row.sub.active {
+	background:rgb(240,250,240);
+}
+
+
+.lesson .sidebar .table a.row img {
+	width:16px;
+	height:16px;
+	float:left;
+	padding:2px;
+	border:1px solid rgb(230,230,230);
+	margin:8px 10px 0 0;
+}
+
+.lesson .sidebar .table a.row.sub img {
+	width:14px;
+	height:14px;
+	margin:10px 8px 0 0;
+	border:0;
+}
+
+.lesson .sidebar .table a.row.active img {
+	background:rgb(190,213,255);
+	border:1px solid rgb(170,170,170);
+}
+
+.lesson .sidebar .table a.sub.row.active img {
+	background:none;
+	border:none;
+}
+
+.lesson .sidebar .table a.row div.score {
+	position:absolute;
+	left:3px;
+	top:20px;
+	font-size:7px;
+	font-weight:normal;
+	padding:0 1px;
+}
+
+
+
+a.nextpage {
+	display:block;
+	float:right;
+	clear:both;
+	padding:10px 14px;
+	border:1px solid rgb(213,213,213);
+	background:rgb(240,240,240);
+	font-size:8pt;
+	font-weight:bold;
+	color:rgb(85,85,85);
+}
+
+
+/***** STEP BY STEP *****/
+
+.StepByStep .SBSprompt {
+	font-size:26px;
+	line-height:30px;
+	padding-bottom:40px;
+}
+
+.StepByStep .SPSsteps div {
+	padding:10px 0;
+	border-top:1px solid rgb(240,245,255);
+}
+
+.StepByStep .SPSsteps div:after {
+	content:' ';
+	display:block;
+	clear:both;
+}
+
+
+.StepByStep .SPSsteps div b {
+	display:block;
+	font-weight:normal;
+	font-size:20px;
+	line-height:24px;	
+}
+
+.StepByStep .SPSsteps div i {
+	display:block;
+	font-style:normal;
+	font-size:10pt;
+	line-height:170%;
+	margin:10px 0 0 10px;
+	padding:10px;
+	border-radius:8px;
+	background:rgb(245,250,255);
+	color:rgb(0,43,128);
+}
+
+
+.StepByStep .SBSnext {
+	display:block;
+	float:left;
+	padding:10px 20px;
+	font-size:12pt;
+	font-weight:bold;
+	font-family:Arial;
+	color:rgb(85,85,85);
+	background:rgb(245,245,245);
+	border-radius:4px;
+	border:1px solid rgb(190,190,190);
+	background:url('/media/images/buttonbg2.png') 0 0 repeat-x rgb(255,255,255);
+	text-shadow: 1px 1px 0px rgb(255,255,255);
+	margin:20px 0 30px 0;
+}
+
+
+.StepByStep .header {
+	font-size:8pt;
+	color:rgb(128,128,128);
+	padding:4px 0;
+	display:block;
+	width:650px;
+}
+

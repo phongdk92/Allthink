@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Create lesson - {{ username }}</title>
+
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="/site_media/allthink.css">
+
+    <style>.tooltiptrolol {
+        position: relative;
+        cursor: help;
+        text-decoration: none;
+    }
+
+    .tooltiptrolol span {
+        display: none;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        padding: 5px;
+        z-index: 100;
+        background: #000;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        line-width: 1000px;
+        text-indent: 0;
+        font: normal bold 10px/13px Tahoma, sans-serif;
+        white-space: nowrap;
+    }
+
+    span:hover.tooltiptrolol {
+        font-size: 99%;
+    }
+
+    .tooltiptrolol:hover span {
+        display: block;
+    }
+
+    .md img {
+        display: inline;
+    }
+
+    .rageface {
+        visibility: visible;
+    }</style>
+</head>
+<body>
+
+
+<div id="wrapper">
+    <div id="navwrapper">
+        <div id="nav">
+            <a href="/user/{{ username }}/" id="logo">Allthink</a>
+
+            <div id="links">
+                <a href="/user/{{ username }}/" class="nav">
+                    <img src="/{{ avatar_dir }}"> {{ fullname }} </a>
+                <a href="/logout/" class="nav">
+                    Logout </a>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="mainbox">
+            <form method="post" id="inform">
+                {% csrf_token %}
+                <div class="inform inhelp">
+                    <div class="toprow">
+                        <div class="title">Create New Lesson</div>
+                    </div>
+
+
+                    <div class="row text ">
+                        <div class="name">Lesson Title</div>
+                        <div class="field">
+                            {{ form.lessonTitle }}
+                        </div>
+                        <div class="help">The name of your lesson: <i>Just testing</i></div>
+                    </div>
+
+                    <div class="row select ">
+                        <div class="name">Grade Level</div>
+                        <div class="field">
+                            {{ form.gradeLevel }}
+                        </div>
+                        <div class="help"></div>
+                    </div>
+
+
+                    <div class="row select ">
+                        <div class="name">Subject</div>
+                        <div class="field">
+                            {{ form.subject }}
+                        </div>
+                        <div class="help"></div>
+                    </div>
+
+
+                    <div class="row area ">
+                        <div class="name">Descrption</div>
+                        <div class="field">{{ form.description }}</div>
+                        <div class="help"></div>
+                    </div>
+
+
+                    <input type="hidden" name="courseid" value="">
+
+
+                    <div class="row submit" style="border:0">
+                        <div class="name">&nbsp;</div>
+                        <div class="field">
+                            <input type="submit" name="submit" value="Submit" class="button" id="formsubmit">
+                            <input type="button" value="Cancel" onclick="history.go(-1)" class="button">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!--
+-->
+
+
+</body>
+</html>

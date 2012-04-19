@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Allthink - Login</title>
+
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="/site_media/global.css">
+    <link rel="stylesheet" type="text/css" href="/site_media/home.css">
+    <script type="text/javascript" src="/site_media/common.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="navwrapper" class="notranslate">
+        <ul class="topnav" style="float: right;">
+        </ul>
+        <a href="/" id="logo" class="gradebook" title="Allthink"><b>Allthink</b></a>
+        <ul class="topnav">
+            <li>
+                <a href="/login/" class="">Login </a>
+            </li>
+            <li>
+                <a href="/signup/" class="">Signup </a>
+            </li>
+        </ul>
+    </div>
+    <div id="main" class="clearfix">
+        <div style="width: 960px; position: relative; margin: auto; margin-top: 20px; top: -20px; ">
+        </div>
+
+
+        <form method="post" action=".">
+            {% csrf_token %}
+            <div class="table text">
+                <b><i>
+                    {{ status }}
+                </i></b>
+            </div>
+
+            <div class="table inform smallform">
+                <div class="toprow">
+                    <div class="title">Engrade Login</div>
+                </div>
+
+                <div class="row alt text ">
+                    <div class="name"><label for="id_username"> Username </label></div>
+                    <div class="field">{{ form.username }}</div>
+                </div>
+
+                <div class="row  text ">
+                    <div class="name"><label for="id_password"> Password </label></div>
+                    <div class="field">{{ form.password }}</div>
+                    <div class="help"></div>
+                </div>
+                <input type="hidden" name="next" value="/"/>
+
+                <div class="row  submit">
+                    <div class="name">&nbsp;</div>
+                    <div class="field">
+                        <input type="submit" name="submit" value="Submit" id="formsubmit" class="submit">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <script type="text/javascript">
+            gid('input_usr').focus();</script>
+
+    </div>
+</div>
+
+<!--
+ 
+-->
+
+
+</body>
+</html>

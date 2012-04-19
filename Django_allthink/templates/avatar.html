@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Allthink Lessons - Group 6</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="/site_media/global.css">
+    <script type="text/javascript" src="/site_media/common.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="navwrapper" class="notranslate">
+        <ul class="topnav" style="float: right;">
+            <li>
+                <a href="/user/{{ username }}/" class="nav" style="color:rgb(213,213,240);">
+                    <img src="/{{ avatar_dir }}">
+                    {{ fullname }} </a>
+            </li>
+            <li>
+                <a href="/logout/" class="nav" style="color:rgb(213,213,240);">
+                    Logout </a>
+            </li>
+        </ul>
+        <a href="/" id="logo" class="gradebook" title="gradebook"><b>gradebook</b></a>
+        <ul class="topnav">
+            <li>
+                <a href="/user/{{ username }}/account" class="">Account </a>
+                <ul>
+                    <li><a href="/user/{{ username }}/account">Edit Account</a></li>
+                    <li><a href="/user/{{ username }}/pic">Edit Picture</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="main" class="clearfix">
+        <h1>Allthink Lessons</h1>
+
+        <div class="tr">
+
+            <div class="sidetools sideup">
+                <img src="/{{ avatar_dir }}" class="sidepic">
+            </div>
+
+            <div style="position:absolute;left:200px;top:90px;right:0;bottom:0;z-index:2">
+
+                <form method="post" id="inform" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="table inform">
+                        <div class="toprow">
+                            <div class="title">Upload Picture</div>
+                        </div>
+
+                        <div class="row alt text ">
+                            <div class="name"><img src="/{{ avatar_dir }}" style="width:100px"></div>
+                            <div class="field">{{ form.uploadFile }}</div>
+                            <div class="help">Select a gif, jpg, or png file less than 8Mb</div>
+                        </div>
+
+
+                        <div class="row alt submit">
+                            <div class="name">&nbsp;</div>
+                            <div class="field">
+                                <input type="submit" name="submit" value="Submit" id="formsubmit" class="submit">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--
+
+-->
+
+
+</body>
+</html>

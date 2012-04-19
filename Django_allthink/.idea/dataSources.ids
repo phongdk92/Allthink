@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Django default" product="SQLite" version="3.6.3" jdbc-version="2.1" driver-version="native" uuid="e9109a41-1b2d-4b56-8fe7-50c30ef05c3c">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:D:\Allthink_Project\Django_allthink\allthinkdb</jdbc-url>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.PyCharm20/config/jdbc-drivers/zentus-sqlite-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.PyCharm20/config/jdbc-drivers/sqlitejdbc-v056.jar</url>
+      </library>
+    </libraries>
+    <table name="ALLTHINK_DOCUMENT" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="lesson_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="file_doc" sqlType="VARCHAR(10)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="pageTitle" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="text" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="ALLTHINK_FILE_DOC" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="file_name" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="file" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="ALLTHINK_FILE_IMG" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="file_name" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="file" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="ALLTHINK_IMAGE" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="lesson_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="pageTitle" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="image" sqlType="VARCHAR(10)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="text" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="ALLTHINK_LESSON" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="lessonTitle" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="gradeLevel" sqlType="VARCHAR(30)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="subject" sqlType="VARCHAR(30)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="description" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="ALLTHINK_STEPBYSTEP" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="lesson_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="pageTitle" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="promt" sqlType="VARCHAR(300)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="step" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="explain" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="ALLTHINK_TEXT" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="lesson_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="pageTitle" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="text" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="ALLTHINK_USERPROFILE" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="typeUser" sqlType="VARCHAR(20)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="fullname" sqlType="VARCHAR(30)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="ALLTHINK_VIDEO" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="lesson_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="pageTitle" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="url" sqlType="VARCHAR(200)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="text" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="AUTH_GROUP" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="name" sqlType="VARCHAR(80)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="AUTH_GROUP_PERMISSIONS" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="group_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="permission_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="AUTH_MESSAGE" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="message" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="AUTH_PERMISSION" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="name" sqlType="VARCHAR(50)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="content_type_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="codename" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="AUTH_USER" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="username" sqlType="VARCHAR(30)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="first_name" sqlType="VARCHAR(30)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="last_name" sqlType="VARCHAR(30)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="email" sqlType="VARCHAR(75)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="password" sqlType="VARCHAR(128)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="is_staff" sqlType="BOOL" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="is_active" sqlType="BOOL" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="is_superuser" sqlType="BOOL" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="last_login" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="date_joined" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="AUTH_USER_GROUPS" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="group_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="AUTH_USER_USER_PERMISSIONS" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="permission_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="DJANGO_CONTENT_TYPE" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="name" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="app_label" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="model" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="DJANGO_SESSION" schema="" catalog="" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR(40)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="session_data" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="expire_date" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="session_key" />
+    </table>
+    <table name="DJANGO_SITE" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="domain" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="name" sqlType="VARCHAR(50)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+  </data-source>
+</component>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Lesson Edit - {{ lesson.lessonTitle }}</title>
+
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="/site_media/allthink.css">
+    <script type="text/javascript" src="/site_media/common.js"></script>
+    <script type="text/javascript">
+    </script>
+    <style>.tooltiptrolol {
+        position: relative;
+        cursor: help;
+        text-decoration: none;
+    }
+
+    .tooltiptrolol span {
+        display: none;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        padding: 5px;
+        z-index: 100;
+        background: #000;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        line-width: 1000px;
+        text-indent: 0;
+        font: normal bold 10px/13px Tahoma, sans-serif;
+        white-space: nowrap;
+    }
+
+    span:hover.tooltiptrolol {
+        font-size: 99%;
+    }
+
+    .tooltiptrolol:hover span {
+        display: block;
+    }
+
+    .md img {
+        display: inline;
+    }
+
+    .rageface {
+        visibility: visible;
+    }</style>
+</head>
+<body>
+
+
+<div id="wrapper">
+    <div id="navwrapper">
+        <div id="nav">
+            <a href="/user/{{ username }}/" id="logo">Allthink</a>
+
+            <div id="links">
+                <a href="/user/{{ username }}/" class="nav">
+                    <img src="/{{ avatar_dir }}"> {{ fullname }} </a>
+                <a href="/logout/" class="nav">
+                    Logout </a>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+
+
+        <div class="mainbox">
+
+            <div class="options over">
+                <a href=""
+                   onclick="popon('addpage');return false" class="title"><img
+                        src="/media/images/page-add.png" class="upic"> Add New Page</a>
+                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/edit-info"><img
+                        src="/media/images/setting.png" class="upic"> Edit Info</a>
+                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/delete"><img
+                        src="/media/images/delete.png" class="upic"> Delete</a>
+            </div>
+
+            <div class="table wide">
+
+                <div class="row">
+
+                    <div style="line-height:170%;width:700px">
+                        <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1" target="_top"
+                           style="font-size:18pt;font-family:Arial">{{ lesson.lessonTitle }}</a><br>
+                        {{ lesson.description }}
+                    </div>
+                </div>
+
+                {% if videos %}
+                    {% for video in videos %}
+                        <div class="row">
+                            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/video/{{ video.id }}/edit"
+                               class="title">
+                                <img src="/media/images/video.png" alt="Video" class="upic">
+                                {{ video.pageTitle }} </a>
+
+                            <div class="ops">
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/video/{{ video.id }}/delete/">Delete</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {% if images %}
+                    {% for image in images %}
+                        <div class="row">
+                            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/image/{{ image.id }}/edit"
+                               class="title">
+                                <img src="/media/images/stats.png" alt="image" class="upic">
+                                {{ image.pageTitle }} </a>
+
+                            <div class="ops">
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/3/0" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/image/{{ image.id }}/delete/">Delete</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {% if docs %}
+                    {% for doc in docs %}
+                        <div class="row">
+                            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/doc/{{ doc.id }}/edit"
+                               class="title">
+                                <img src="/media/images/copy.png" alt="doc" class="upic">
+                                {{ doc.pageTitle }} </a>
+
+                            <div class="ops">
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/2/0" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/doc/{{ doc.id }}/delete/">Delete</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {% if steps %}
+                    {% for step in steps %}
+                        <div class="row">
+                            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/step/{{ step.id }}/edit"
+                               class="title">
+                                <img src="/media/images/notepad.png" alt="step" class="upic">
+                                {{ step.pageTitle }} </a>
+
+                            <div class="ops">
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/0" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/step/{{ step.id }}/delete/">Delete</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {% if texts %}
+                    {% for text in texts %}
+                        <div class="row">
+                            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/text/{{ text.id }}/edit"
+                               class="title">
+                                <img src="/media/images/web.png" alt="text" class="upic">
+                                {{ text.pageTitle }} </a>
+
+                            <div class="ops">
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/5/0" target="_top">View</a> &nbsp;
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/text/{{ text.id }}/delete/">Delete</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/addpage"
+                   onclick="popon('addpage');return false" class="row"><img
+                        src="/media/images/page-add.png" class="upic"> Add New Page</a>
+
+            </div>
+        </div>
+
+
+        <div class="table" id="addpage" style="width:700px;display:none" title="Add Page">
+
+            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-video" class="row"><img
+                    src="/media/images/video.png" class="upic">Add Video</a>
+            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-doc" class="row"><img
+                    src="/media/images/copy.png" class="upic">Add Powerpoint/Document</a>
+            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-image" class="row"><img
+                    src="/media/images/stats.png" class="upic">Add Image</a>
+            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-step" class="row"><img
+                    src="/media/images//notepad.png" class="upic">Add Step-by-Step</a>
+            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-text" class="row"><img
+                    src="/media/images/web.png" class="upic">Add Text</a>
+        </div>
+
+
+    </div>
+</div>
+<div id="pop" class="off">
+    <div id="poptop">
+        <a href="javascript:popoff();void(0)" id="popclose" title="Close"><img src="/media/images/delete.png" alt="Close"></a>
+        <div id="poptitle">&nbsp;</div>
+    </div>
+    <div id="popc"></div>
+</div>
+<!--
+-->
+
+
+</body>
+</html>

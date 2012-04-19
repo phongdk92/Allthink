@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Allthink Lessons</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="/site_media/global.css">
+    <script type="text/javascript" src="/site_media/common.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="navwrapper" class="notranslate">
+        <ul class="topnav" style="float: right;">
+            <li>
+                <a href="/user/{{ username }}/" class="nav" style="color:rgb(213,213,240);">
+                    <img src="/{{ avatar_dir }}">
+                    {{ fullname }} </a>
+            </li>
+            <li>
+                <a href="/logout/" class="nav" style="color:rgb(213,213,240);">
+                    Logout </a>
+            </li>
+        </ul>
+        <a href="/" id="logo" class="gradebook" title="gradebook"><b>gradebook</b></a>
+        <ul class="topnav">
+            <li>
+                <a href="/user/{{ username }}/account" class="">Account </a>
+                <ul>
+                    <li><a href="/user/{{ username }}/account">Edit Account</a></li>
+                    <li><a href="/user/{{ username }}/pic">Edit Picture</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="main" class="clearfix">
+        <h1>Allthink Lessons</h1>
+
+        <div class="tr">
+
+            <div class="sidetools sideup">
+                <img src="/{{ avatar_dir }}" class="sidepic">
+            </div>
+
+            <div style="position:absolute;left:200px;top:90px;right:0;bottom:0;z-index:2">
+
+
+                <div style="width:100%;height:75px;background:url(/media/images/allthinkbg.jpg) 0 -68px repeat-x rgb(255,255,255);font-size:8pt;line-height:200%">
+                    <a href="/"
+                       target="top"><img src="/media/images/allthinklogo2.png" style="float:left;margin-right:15px"></a>
+
+                    <div style="max-width:770px">
+                        Allthink
+                    </div>
+                </div>
+
+                <div class="options">
+                    <a href=""
+                       onclick="popon('addpage');return false" class="title"><img
+                            src="/media/images/page-add.png" class="upic"> Add New Lesson</a>
+                </div>
+
+                <div class="table bb">
+                    {% if lessons %}
+                        {% for lesson in lessons %}
+                            <div class="row">
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
+                                   target="_top"><img src="/media/images/folder.png" class="postpic"></a>
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
+                                   class="title" target="top">{{ lesson.lessonTitle }}</a>
+
+                                <div class="byline">
+                                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0">View Lesson</a>
+                                    -
+                                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/removeref">Unfollow Lesson</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="row">
+                            No lesson found.
+                        </div>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="table" id="addpage" style="width:800px;display:none" title="Add Lesson">
+            {% if all_lessons %}
+                {% for lesson in all_lessons %}
+                    {% if lesson not in lessons %}
+                        <a href="/user/{{ username }}/lesson/{{ lesson.id }}/addref" class="row"> <img
+                            src="/media/images/folder.png" class="upic"> {{ lesson.lessonTitle }} *** {{ lesson.user.fullname }} </a>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <div class="row">
+                    No lesson found.
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+
+<div id="pop" class="off">
+    <div id="poptop">
+        <a href="javascript:popoff();void(0)" id="popclose" title="Close"><img src="/media/images/delete.png" alt="Close"></a>
+        <div id="poptitle">&nbsp;</div>
+    </div>
+    <div id="popc"></div>
+</div>
+<!--
+ 
+-->
+
+
+</body>
+</html>
