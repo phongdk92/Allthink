@@ -200,7 +200,8 @@ def create_lesson(request, username) :
             variables = RequestContext ( request,{
                 'username' : username,
                 'fullname' : user_profile.fullname,
-                'lesson'   : lesson
+                'lesson'   : lesson,
+                'avatar_dir' : user_profile.avatar.url,
             })
             return render_to_response('lesson/lesson_edit.html', variables)
     else :
