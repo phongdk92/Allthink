@@ -26,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lesson_view.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="lesson_view.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="0.0">
+            <state line="155" column="94" selection-start="6213" selection-end="6213" vertical-scroll-proportion="0.40572792">
               <folding />
             </state>
           </provider>
@@ -44,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Allthink/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="49" selection-start="4256" selection-end="4256" vertical-scroll-proportion="0.8515284">
+            <state line="110" column="64" selection-start="4256" selection-end="4271" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -81,9 +81,9 @@
         <option value="$PROJECT_DIR$/templates/student_page.html" />
         <option value="$PROJECT_DIR$/templates/teacher_page.html" />
         <option value="$PROJECT_DIR$/templates/avatar.html" />
-        <option value="$PROJECT_DIR$/templates/lesson/lesson_view.html" />
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/Allthink/views.py" />
+        <option value="$PROJECT_DIR$/templates/lesson/lesson_view.html" />
       </list>
     </option>
   </component>
@@ -559,13 +559,6 @@
         <state line="75" column="46" selection-start="3671" selection-end="3671" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="28" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0">
@@ -575,7 +568,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Allthink/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="49" selection-start="4256" selection-end="4256" vertical-scroll-proportion="0.8515284">
+        <state line="110" column="64" selection-start="4256" selection-end="4271" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="94" selection-start="6213" selection-end="6213" vertical-scroll-proportion="0.40572792">
           <folding />
         </state>
       </provider>
