@@ -26,10 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lesson_view.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="lesson_view.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="0.26968974">
+            <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="-4.3461537">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="40" selection-start="533" selection-end="533" vertical-scroll-proportion="0.611236">
               <folding />
             </state>
           </provider>
@@ -50,7 +59,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/lesson/lesson_edit_info.html" />
         <option value="$PROJECT_DIR$/templates/lesson/create_lesson.html" />
         <option value="$PROJECT_DIR$/templates/lesson/add_video_page.html" />
         <option value="$PROJECT_DIR$/templates/lesson/add_stepbystep_page.html" />
@@ -66,6 +74,7 @@
         <option value="$PROJECT_DIR$/templates/teacher_page.html" />
         <option value="$PROJECT_DIR$/templates/avatar.html" />
         <option value="$PROJECT_DIR$/templates/lesson/lesson_view.html" />
+        <option value="$PROJECT_DIR$/settings.py" />
       </list>
     </option>
   </component>
@@ -476,11 +485,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/site_media/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="20" selection-start="5066" selection-end="5088" vertical-scroll-proportion="0.9234234" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/lesson/add_text_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="121" column="0" selection-start="3624" selection-end="3624" vertical-scroll-proportion="-10.692307" />
@@ -553,7 +557,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="0.26968974">
+        <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="-4.3461537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="40" selection-start="533" selection-end="533" vertical-scroll-proportion="0.611236">
           <folding />
         </state>
       </provider>
