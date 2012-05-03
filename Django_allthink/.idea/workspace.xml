@@ -29,7 +29,7 @@
       <file leaf-file-name="lesson_view.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="94" selection-start="6213" selection-end="6213" vertical-scroll-proportion="0.40572792">
+            <state line="155" column="116" selection-start="6235" selection-end="6235" vertical-scroll-proportion="0.40572792">
               <folding />
             </state>
           </provider>
@@ -575,7 +575,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="94" selection-start="6213" selection-end="6213" vertical-scroll-proportion="0.40572792">
+        <state line="155" column="116" selection-start="6235" selection-end="6235" vertical-scroll-proportion="0.40572792">
           <folding />
         </state>
       </provider>
