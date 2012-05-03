@@ -29,16 +29,25 @@
       <file leaf-file-name="lesson_view.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="-4.3461537">
+            <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="40" selection-start="533" selection-end="533" vertical-scroll-proportion="0.611236">
+            <state line="16" column="28" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Allthink/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="32" selection-start="3222" selection-end="3222" vertical-scroll-proportion="0.59388644">
               <folding />
             </state>
           </provider>
@@ -69,12 +78,12 @@
         <option value="$PROJECT_DIR$/Allthink/models.py" />
         <option value="$PROJECT_DIR$/templates/registration/teacher_signup.html" />
         <option value="$PROJECT_DIR$/Allthink/forms.py" />
-        <option value="$PROJECT_DIR$/Allthink/views.py" />
         <option value="$PROJECT_DIR$/templates/student_page.html" />
         <option value="$PROJECT_DIR$/templates/teacher_page.html" />
         <option value="$PROJECT_DIR$/templates/avatar.html" />
         <option value="$PROJECT_DIR$/templates/lesson/lesson_view.html" />
         <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/Allthink/views.py" />
       </list>
     </option>
   </component>
@@ -276,25 +285,6 @@
       <option name="MULTIPROCESS" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <module name="Django_allthink" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -314,6 +304,25 @@
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
       <option name="launchJavascriptDebuger" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="Django_allthink" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -418,9 +427,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33611533" sideWeight="0.64214045" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34218514" sideWeight="0.5100334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33611533" sideWeight="0.15384616" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34218514" sideWeight="0.28595316" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1923077" sideWeight="0.5531108" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1923077" sideWeight="0.44157815" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -510,11 +519,6 @@
         <state line="83" column="47" selection-start="2686" selection-end="2689" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Allthink/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="55" selection-start="7704" selection-end="7704" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/student_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="38" selection-start="935" selection-end="935" vertical-scroll-proportion="0.0" />
@@ -557,14 +561,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="-4.3461537">
+        <state line="155" column="74" selection-start="6193" selection-end="6193" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="40" selection-start="533" selection-end="533" vertical-scroll-proportion="0.611236">
+        <state line="16" column="28" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Allthink/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="32" selection-start="3222" selection-end="3222" vertical-scroll-proportion="0.59388644">
           <folding />
         </state>
       </provider>
