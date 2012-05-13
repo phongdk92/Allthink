@@ -44,10 +44,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Allthink/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="111" column="68" selection-start="4317" selection-end="4317" vertical-scroll-proportion="3.1737523">
+            <state line="111" column="77" selection-start="4333" selection-end="4333" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lesson_view.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="168" column="42" selection-start="6703" selection-end="6703" vertical-scroll-proportion="0.64541835">
               <folding />
             </state>
           </provider>
@@ -116,9 +125,9 @@
         <option value="$PROJECT_DIR$/site_media/allthink.css" />
         <option value="$PROJECT_DIR$/templates/registration/student_signup.html" />
         <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/Allthink/views.py" />
         <option value="$PROJECT_DIR$/templates/student_page.html" />
         <option value="$PROJECT_DIR$/site_media/global.css" />
+        <option value="$PROJECT_DIR$/Allthink/views.py" />
         <option value="$PROJECT_DIR$/templates/lesson/lesson_view.html" />
       </list>
     </option>
@@ -202,6 +211,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lesson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Django_allthink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Django_allthink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Allthink" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -576,13 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="34" selection-start="6118" selection-end="6118" vertical-scroll-proportion="4.5896416">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/lesson/add_image_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="113" column="22" selection-start="3303" selection-end="3303" vertical-scroll-proportion="-60.153847">
@@ -592,7 +608,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Allthink/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="68" selection-start="4317" selection-end="4317" vertical-scroll-proportion="3.1737523">
+        <state line="111" column="77" selection-start="4333" selection-end="4333" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="42" selection-start="6703" selection-end="6703" vertical-scroll-proportion="0.64541835">
           <folding />
         </state>
       </provider>
