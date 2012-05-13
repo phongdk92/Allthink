@@ -12,6 +12,7 @@ class Lesson(models.Model):
     user = models.ForeignKey(UserProfile)
     #
     lessonTitle = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
     GRADE_LEVEL = (
         ('all','All grade level') ,
         ('e' , 'Elementary') ,
@@ -26,6 +27,9 @@ class Lesson(models.Model):
     )
     subject = models.CharField(max_length=30, choices = SUBJECT)
     description = models.TextField(max_length=2000)
+
+    def __unicode__(self):
+        return self.lessonTitle
 
 class LessonReference(models.Model):
     user = models.OneToOneField(UserProfile, primary_key=True)
@@ -55,7 +59,6 @@ class Video(models.Model):
         video_id = match.group('id')
         return video_id
 
-
 class Document(models.Model):
     lesson = models.ForeignKey(Lesson)
     file_doc = models.CharField(max_length=255)
@@ -69,18 +72,22 @@ class Image(models.Model):
     file_image = models.CharField(max_length=255)
     text = models.TextField(max_length=2000)
 
+
 class StepbyStep(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
     promt = models.CharField(max_length=300)
+
 
 class Step(models.Model):
     sts = models.ForeignKey(StepbyStep)
     step = models.CharField(max_length=100)
     explain = models.CharField(max_length=100)
 
+
 class Text(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
     text = models.TextField(max_length=2000)
+
 

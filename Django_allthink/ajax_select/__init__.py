@@ -16,12 +16,12 @@ from django.utils.translation import ugettext_lazy as _, ugettext
 class LookupChannel(object):
 
     """Subclass this, setting model and overiding the methods below to taste"""
-
+    
     model = None
     min_length = 1
-
+    
     def get_query(self,q,request):
-        """ return a query set searching for the query string q
+        """ return a query set searching for the query string q 
             either implement this method yourself or set the search_field
             in the LookupChannel class definition
         """
@@ -51,7 +51,7 @@ class LookupChannel(object):
         return [things[aid] for aid in ids if things.has_key(aid)]
 
     def can_add(self,user,argmodel):
-        """ Check if the user has permission to add
+        """ Check if the user has permission to add 
             one of these models. This enables the green popup +
             Default is the standard django permission check
         """
@@ -64,20 +64,20 @@ class LookupChannel(object):
             also you could choose to return HttpResponseForbidden("who are you?")
             instead of raising PermissionDenied (401 response)
          """
-        if not request.user.is_staff:
+        if not request.user.is_active:
             raise PermissionDenied
 
 
 
 def make_ajax_form(model,fieldlist,superclass=ModelForm,show_help_text=False,**kwargs):
     """ Creates a ModelForm subclass with autocomplete fields
-
+            
         usage:
             class YourModelAdmin(Admin):
                 ...
                 form = make_ajax_form(YourModel,{'contacts':'contact','author':'contact'})
 
-        where
+        where 
             'contacts' is a ManyToManyField specifying to use the lookup channel 'contact'
         and
             'author' is a ForeignKeyField specifying here to also use the lookup channel 'contact'
@@ -85,9 +85,9 @@ def make_ajax_form(model,fieldlist,superclass=ModelForm,show_help_text=False,**k
     # will support previous arg name for several versions before deprecating
     if 'show_m2m_help' in kwargs:
         show_help_text = kwargs.pop('show_m2m_help')
-
+        
     class TheForm(superclass):
-
+        
         class Meta:
             pass
         setattr(Meta, 'model', model)
@@ -106,12 +106,12 @@ def make_ajax_field(model,model_fieldname,channel,show_help_text = False,**kwarg
     """ Makes a single autocomplete field for use in a Form
 
         optional args:
-            help_text - default is the model db field's help_text.
+            help_text - default is the model db field's help_text. 
                 None will disable all help text
             label     - default is the model db field's verbose name
             required  - default is the model db field's (not) blank
-
-            show_help_text -
+        
+            show_help_text - 
                 Django will show help text below the widget, but not for ManyToMany inside of admin inlines
                 This setting will show the help text inside the widget itself.
     """
@@ -119,9 +119,9 @@ def make_ajax_field(model,model_fieldname,channel,show_help_text = False,**kwarg
     if 'show_m2m_help' in kwargs:
         show_help_text = kwargs.pop('show_m2m_help')
 
-    from ajax_select.fields import AutoCompleteField,\
-        AutoCompleteSelectMultipleField,\
-        AutoCompleteSelectField
+    from ajax_select.fields import AutoCompleteField, \
+                                   AutoCompleteSelectMultipleField, \
+                                   AutoCompleteSelectField
 
     field = model._meta.get_field(model_fieldname)
     if kwargs.has_key('label'):
@@ -149,7 +149,7 @@ def make_ajax_field(model,model_fieldname,channel,show_help_text = False,**kwarg
             help_text=help_text,
             label=label,
             **kwargs
-        )
+            )
     elif isinstance(field,ForeignKey):
         f = AutoCompleteSelectField(
             channel,
@@ -157,7 +157,7 @@ def make_ajax_field(model,model_fieldname,channel,show_help_text = False,**kwarg
             help_text=help_text,
             label=label,
             **kwargs
-        )
+            )
     else:
         f = AutoCompleteField(
             channel,
@@ -165,7 +165,7 @@ def make_ajax_field(model,model_fieldname,channel,show_help_text = False,**kwarg
             help_text=help_text,
             label=label,
             **kwargs
-        )
+            )
     return f
 
 
@@ -197,11 +197,11 @@ def get_lookup(channel):
                     lambda self,obj: unicode(obj)))
         if not hasattr(lookup_class,'format_item_display'):
             setattr(lookup_class, 'format_item_display',
-                getattr(lookup_class,'format_item',
+                getattr(lookup_class,'format_item', 
                     lambda self,obj: unicode(obj)))
         if not hasattr(lookup_class,'get_result'):
             setattr(lookup_class, 'get_result',
-                getattr(lookup_class,'format_result',
+                getattr(lookup_class,'format_result', 
                     lambda self,obj: unicode(obj)))
 
         return lookup_class()
@@ -210,17 +210,17 @@ def get_lookup(channel):
 def make_channel(app_model,arg_search_field):
     """ used in get_lookup
             app_model :   app_name.model_name
-            search_field :  the field to search against and to display in search results
+            search_field :  the field to search against and to display in search results 
     """
     from django.db import models
     app_label, model_name = app_model.split(".")
     themodel = models.get_model(app_label, model_name)
-
+    
     class MadeLookupChannel(LookupChannel):
-
+        
         model = themodel
         search_field = arg_search_field
-
+        
     return MadeLookupChannel()
 
 

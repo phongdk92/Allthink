@@ -1,0 +1,41 @@
+<html>
+<head>
+</head>
+
+<body>
+
+	{% if entered %}
+		<p> <font size="5" face="tahoma" style="color: #003580;"> Which lesson do you want :
+                    {% if all_lessons %}
+                        {% for lesson in all_lessons %}
+                            {% if lesson not in lessons %}
+                                <div>
+                                <img src="/media/images/lecture.jpg" style="height: 24px; width: 24px"  >
+                                    <font size="3" face="arial" color="#005685">
+                                        <b>Lesson   : {{ lesson.lessonTitle }} - {{ lesson.subject }}</b></font>
+                                    <font size="3" face="verada" color="#46a546">
+                                        <div><b>Lecturer : {{ lesson.author }}</b></div></font>
+                                </div>
+                               <a href="/user/{{ username }}/lesson/{{ lesson.id }}/addref">
+                                   <button style="position: relative; left : 650px; height: 25px; width: 100px;
+                                   font-family: Tahoma; color: #a9302a ; font-weight: bold;">Add lesson</button></a>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <div class="row">
+                            No lesson found.
+                        </div>
+                    {% endif %}
+        </font></p>
+	{% endif %}
+	<form action="{% url search_form %}" method="GET">
+	<table>
+	{{ form }}
+    <input type="hidden" name="u" value="{{ username }}"/>
+	<tr>
+		<th></th><td><input style="position: relative; left : 350px; height: 25px; width: 100px; font-family: Tahoma; color: #a9302a ; font-weight: bold;" type="submit" value="Search"/></td>
+	</tr>
+	</table>
+	</form>
+</body>
+</html>

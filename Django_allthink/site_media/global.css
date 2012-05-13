@@ -85,7 +85,7 @@ label {
     line-height:16px;
     font-weight:bold;
     color:rgb(255,255,255);
-    padding:12px 15px;	
+    padding:12px 15px;
     border-left:1px solid rgb(0,100,250);
     border-right:1px solid rgb(0,70,210);
 }
@@ -996,6 +996,11 @@ div.options a img.upic {
 	margin:8px 4px 0 0;
 }
 
+div.options li img.dpic,
+div.options span img.dpic,
+div.options a img.dpic {
+    margin:8px 4px 0 0;
+}
 
 div.options .icon {
 	width:36px;
@@ -1782,6 +1787,12 @@ a.file img {
 	float:left;
 }
 
+.dpic {
+    width:16px;
+    height:16px;
+    margin-right:6px;
+    float:right;
+}
 
 #dev {
 	position:absolute;
@@ -1931,6 +1942,10 @@ div.progressArrow {
 
 .graph .row .upic {
 	margin-top:4px;
+}
+
+.graph .row .dpic {
+    margin-top:4px;
 }
 
 .graph .bar {

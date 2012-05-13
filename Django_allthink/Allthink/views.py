@@ -1,5 +1,6 @@
 # Create your views here.
 import os
+from ajax_select.fields import AutoCompleteField
 from django.contrib import auth
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
@@ -83,7 +84,7 @@ def teacher_register_page(request) :
                 password=form.cleaned_data['password1'],
                 email=form.cleaned_data['email'],
             )
-            filea = File(file("/app/Django_allthink/media/avatar/default.gif", 'rb'))
+            filea = File(file(os.path.join("media/avatar/teacher.jpg"), 'rb'))
             user_profile = UserProfile.objects.create(
                 user = user,
                 fullname=form.cleaned_data['fullname'],
@@ -108,7 +109,7 @@ def student_register_page(request) :
                 password=form.cleaned_data['password1'],
                 email=form.cleaned_data['email'],
             )
-            filea = File(open(os.path.join("/app/Django_allthink/media/avatar/default.gif"), 'rb'))
+            filea = File(open(os.path.join("media/avatar/student.gif"), 'rb'))
             user_profile = UserProfile.objects.create(
                 user = user,
                 fullname=form.cleaned_data['fullname'],
@@ -187,12 +188,15 @@ def user_avatar_page(request , username) :
 def create_lesson(request, username) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     if request.method == 'POST' :
         form = CreateLesson(request.POST)
         if form.is_valid() :
             lesson = Lesson.objects.create(
                 user = user_profile,
                 lessonTitle = form.cleaned_data['lessonTitle'],
+                author = username,
                 gradeLevel = form.cleaned_data['gradeLevel'],
                 subject = form.cleaned_data['subject'],
                 description = form.cleaned_data['description'],
@@ -218,6 +222,8 @@ def create_lesson(request, username) :
 def edit_lesson(request, username, id) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     lesson = get_object_or_404(Lesson, id = id)
     videos = lesson.video_set.all()
     docs = lesson.document_set.all()
@@ -280,6 +286,10 @@ def view_lesson(request, username, id, page, stepid) :
 
 @login_required
 def delete_lesson(request, username, id) :
+    user = get_object_or_404(User, username = username)
+    user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     lesson = get_object_or_404(Lesson, id = id)
     lesson.delete()
     return HttpResponseRedirect('/user/' + username)
@@ -288,6 +298,8 @@ def delete_lesson(request, username, id) :
 def edit_lesson_info(request, username, id) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     lesson = get_object_or_404(Lesson, id = id)
     if request.method == 'POST' :
         form = CreateLesson(request.POST)
@@ -318,6 +330,8 @@ def edit_lesson_info(request, username, id) :
 def add_video(request, username, id) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     lesson = get_object_or_404(Lesson, id = id)
     if request.method == 'POST' :
         form = AddVideoForm(request.POST)
@@ -344,6 +358,8 @@ def add_doc(request, username, id ) :
     lesson = get_object_or_404(Lesson, id = id)
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     file_docs = user_profile.file_doc_set.all()
     FILES = ((file.file.url,file.file.name) for file in file_docs)
     if request.method == 'POST' :
@@ -384,6 +400,8 @@ def add_doc(request, username, id ) :
 def add_image(request, username, id) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     lesson = get_object_or_404(Lesson, id = id)
     file_imgs = user_profile.file_img_set.all()
     FILES = ((file.file.url,file.file.name) for file in file_imgs)
@@ -428,6 +446,8 @@ def add_image(request, username, id) :
 def add_step(request, username, id) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     lesson = get_object_or_404(Lesson, id = id)
     if request.method == 'POST' :
         form = AddStepbyStepForm(request.POST)
@@ -464,6 +484,8 @@ def add_step(request, username, id) :
 def add_text(request, username, id) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     lesson = get_object_or_404(Lesson, id = id)
     if request.method == 'POST' :
         form = AddTextForm(request.POST)
@@ -488,6 +510,8 @@ def add_text(request, username, id) :
 def edit_video(request, username, id_lesson, id_video) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     video = get_object_or_404(Video, id = id_video)
     if request.method == 'POST' :
         form = AddVideoForm(request.POST)
@@ -516,6 +540,8 @@ def edit_video(request, username, id_lesson, id_video) :
 def edit_doc(request, username, id_lesson , id_doc ) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     doc = get_object_or_404(Document, id = id_doc)
     file_docs = user_profile.file_doc_set.all()
     FILES = ((file.file.url,file.file.name) for file in file_docs)
@@ -561,6 +587,8 @@ def edit_doc(request, username, id_lesson , id_doc ) :
 def edit_image(request, username, id_lesson, id_image) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     image = get_object_or_404(Image, id = id_image)
     file_imgs = user_profile.file_img_set.all()
     FILES = ((file.file.url,file.file.name) for file in file_imgs)
@@ -607,6 +635,8 @@ def edit_image(request, username, id_lesson, id_image) :
 def edit_step(request, username, id_lesson, id_step) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     stepbystep = get_object_or_404(StepbyStep, id = id_step)
     steps = stepbystep.step_set.all()
     if request.method == 'POST' :
@@ -684,6 +714,8 @@ def edit_step(request, username, id_lesson, id_step) :
 def edit_text(request, username, id_lesson, id_text) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     text = get_object_or_404(Text, id = id_text)
     if request.method == 'POST' :
         form = AddTextForm(request.POST)
@@ -708,12 +740,20 @@ def edit_text(request, username, id_lesson, id_text) :
 
 @login_required
 def delete_video(request, username, id_lesson, id_video) :
+    user = get_object_or_404(User, username = username)
+    user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     video = get_object_or_404(Video, id = id_video)
     video.delete()
     return HttpResponseRedirect('/user/'+username+'/lesson/'+id_lesson+'/edit/')
 
 @login_required
 def delete_doc(request, username, id_lesson, id_doc) :
+    user = get_object_or_404(User, username = username)
+    user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     doc = get_object_or_404(Document, id = id_doc)
 #    file = get_object_or_404(File_doc, file_name = doc.file_doc)
 #    file.file.delete()
@@ -732,12 +772,20 @@ def delete_image(request, username, id_lesson, id_image) :
 
 @login_required
 def delete_step(request, username, id_lesson, id_step) :
+    user = get_object_or_404(User, username = username)
+    user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     step = get_object_or_404(StepbyStep, id = id_step)
     step.delete()
     return HttpResponseRedirect('/user/'+username+'/lesson/'+id_lesson+'/edit/')
 
 @login_required
 def delete_text(request, username, id_lesson, id_text) :
+    user = get_object_or_404(User, username = username)
+    user_profile = user.get_profile()
+    if user_profile.typeUser == 'student' :
+        return HttpResponseRedirect('/user/'+username)
     text = get_object_or_404(Text, id = id_text)
     text.delete()
     return HttpResponseRedirect('/user/'+username+'/lesson/'+id_lesson+'/edit/')
@@ -750,7 +798,7 @@ def student_addref(request, username, lesson_id) :
     lesson_ref = LessonReference.objects.get(user = user_profile)
     lesson_ref.lessons.add(lesson)
     lesson_ref.save()
-    return HttpResponseRedirect('/user/'+username)
+    return HttpResponseRedirect('/search_form?u='+username)
 
 @login_required
 def student_removeref(request, username, lesson_id) :
@@ -762,6 +810,8 @@ def student_removeref(request, username, lesson_id) :
     lesson_ref.save()
     return HttpResponseRedirect('/user/'+username)
 
+
+
 @login_required
 def download_doc_file(request, username, id_doc) :
     doc = get_object_or_404(Document, id = id_doc)
@@ -772,3 +822,34 @@ def download_doc_file(request, username, id_doc) :
     response['Content-Disposition'] = "attachment;filename=%s"%download_name
     response['Content-Length']      = os.path.getsize(file.file_name)
     return response
+
+
+class SearchForm(forms.Form):
+
+    q = AutoCompleteField(
+        'lessonLookup',
+        #'alookup',
+        required=True,
+        help_text="",
+        label="",
+        attrs={'size': 120}
+    )
+
+def search_form(request):
+    variable = {}
+    username = ''
+    if 'u' in request.GET:
+        username = request.GET.get('u')
+    variable['username'] = username
+    if 'q' in request.GET:
+        key = request.GET.get('q')
+        user = get_object_or_404(User, username = username)
+        user_profile = user.get_profile()
+        lesson_ref = LessonReference.objects.get(user = user_profile)
+        variable['entered'] = key
+        variable['all_lessons'] = Lesson.objects.filter(lessonTitle__icontains = key).order_by('lessonTitle')
+        variable['lessons'] = lesson_ref.lessons.all()
+    initial = {'q':""}
+    form = SearchForm(initial=initial)
+    variable['form'] = form
+    return render_to_response('search_form.html',variable,context_instance=RequestContext(request))

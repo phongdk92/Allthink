@@ -167,7 +167,7 @@
                 {% if images %}
                     {% for image in images %}
                         <div class="row select ">
-                            <h3 style="color: #1999e3;style="text-align-last: center;""> {{ image.pageTitle }} </h3>
+                            <h3 style="color: #1999e3;text-align-last: center;"> {{ image.pageTitle }} </h3>
                             <div class="lessonbody">
                                 <img src="/{{ image.file_image }}">
                             </div>
@@ -183,7 +183,7 @@
                     {% for step in stepbysteps %}
                         <div class="table">
                             <h4>
-                            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/{{ step.id }}" class="row ">
+                            <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/{{ step.id }}" class="row select">
                                 <img src="/media/images/notepad.png" style="width:15px;"> {{ step.pageTitle }}
                             </a>
                             </h4>
@@ -191,7 +191,6 @@
                     {% endfor %}
                 {% else %}
                     {% if step %}
-                        <div class="row select ">
                             <div class="lessonbody">
                                 <script type="text/javascript">
                                     function trim(str) {
@@ -236,11 +235,11 @@
 
                                 </script>
                                 <div class="row select ">
-                                    <p><b id="stepnumber">Step and explaination click next to begin</b><b
+                                    <p><b id="stepnumber">Step and explaination</b><b
                                             id='NextStep'></b></p>
                                 </div>
                                 <div class="row select ">
-                                    <p><b id="explainnumber"></b></b><b id='PrevStep'></b></p>
+                                    <p><b id="explainnumber"> Click next to begin</b><b id='PrevStep'></b></p>
                                 </div>
                                 <div class='options'>
                                     <a onclick='Previous()' value='Previous' style="cursor: pointer"> Previous </a>
@@ -248,7 +247,6 @@
                                 </div>
                             </div>
                             <div class="lessontext">{{ step.text }}</div>
-                        </div>
                     {% endif %}
                 {% endif %}
             {% endif %}
@@ -257,7 +255,7 @@
                 {% if texts %}
                     {% for text in texts %}
                         <div class="row select ">
-                            <h2 style="color: #107fc9;style="text-align-last: center;"">{{ text.pageTitle }} </h2>
+                            <h2 style="color: #107fc9; text-align-last: center;">{{ text.pageTitle }} </h2>
                             <div class="lessonbody"> {{ text.text }} </div>
                         </div>
                     {% endfor %}

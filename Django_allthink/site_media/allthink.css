@@ -80,10 +80,10 @@ form {
 }
 
 #nav #links a img {
-	width:16px;
-	height:16px;
+	width:32px;
+	height:32px;
 	float:left;
-	margin:14px 6px 0 0;
+	margin: 1px 1px 0 0;
 }
 
 
@@ -679,6 +679,9 @@ div.options a img.upic {
 	margin:8px 4px 0 0;
 }
 
+div.options a img.dpic {
+    margin:8px 4px 0 0;
+}
 
 
 
@@ -978,7 +981,12 @@ a.file img {
 	float:left;
 }
 
-
+.dpic {
+    width:16px;
+    height:16px;
+    margin-right:8px;
+    float:right;
+}
 
 /******* POP BOX *******/
 

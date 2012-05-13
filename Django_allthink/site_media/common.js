@@ -804,6 +804,3 @@ function dragStop(event) {
 
 
 
-
-
-

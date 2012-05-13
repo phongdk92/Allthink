@@ -1,3 +1,41 @@
+# DEFINE THE SEARCH CHANNELS:
+
+AJAX_LOOKUP_CHANNELS = {
+    # simplest way, automatically construct a search channel by passing a dictionary
+
+    # Custom channels are specified with a tuple
+    # channel: ( module.where_lookup_is, ClassNameOfLookup )
+    'lessonLookup' : ('lookups', 'LessonLookup'),
+    'alookup' : ('lookups', 'ALookup'),
+
+}
+
+
+AJAX_SELECT_BOOTSTRAP = True
+# True: [easiest]
+#   use the admin's jQuery if present else load from jquery's CDN
+#   use jqueryUI if present else load from jquery's CDN
+#   use jqueryUI theme if present else load one from jquery's CDN
+# False/None/Not set: [default]
+#   you should include jQuery, jqueryUI + theme in your template
+
+
+AJAX_SELECT_INLINES = 'inline'
+# 'inline': [easiest]
+#   includes the js and css inline
+#   this gets you up and running easily
+#   but on large admin pages or with higher traffic it will be a bit wasteful.
+# 'staticfiles':
+#   @import the css/js from {{STATIC_URL}}/ajax_selects using django's staticfiles app
+#   requires staticfiles to be installed and to run its management command to collect files
+#   this still includes the css/js multiple times and is thus inefficient
+#   but otherwise harmless
+# False/None: [default]
+#   does not inline anything. include the css/js files in your compressor stack
+#   or include them in the head of the admin/base_site.html template
+#   this is the most efficient but takes the longest to configure
+
+
 # Django settings for Django_allthink project.
 
 DEBUG = True
@@ -11,12 +49,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'allthinkdb',                      # Or path to database file if using sqlite3.
-        'USER': 'postgres',                      # Not used with sqlite3.
-        'PASSWORD': 'namdinh',                  # Not used with sqlite3.
-        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -118,10 +156,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
     'Django_allthink.Allthink',
+    'Django_allthink',
+    'ajax_select',
     'gunicorn',
 )
 

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import re
 from django import forms
 from django.contrib.auth.models import User
@@ -161,3 +162,4 @@ class FileUploadForm(forms.Form) :
     uploadFile = forms.FileField(
         label = 'uploadFile'
     )
+

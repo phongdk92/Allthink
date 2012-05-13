@@ -6,8 +6,17 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="/site_media/global.css">
     <script type="text/javascript" src="/site_media/common.js"></script>
+    <script type="text/javascript" src="/site_media/jquery.js"></script>
 </head>
 <body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#popclose').click(function() {
+            location.reload();
+        });
+    });
+</script>
 
 <div id="wrapper">
     <div id="navwrapper" class="notranslate">
@@ -65,7 +74,7 @@
                         {% for lesson in lessons %}
                             <div class="row">
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
-                                   target="_top"><img src="/media/images/folder.png" class="postpic"></a>
+                                   target="_top"><img src="/media/images/lecture.jpg" class="postpic"></a>
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
                                    class="title" target="top">{{ lesson.lessonTitle }}</a>
 
@@ -88,19 +97,22 @@
 
         </div>
 
-        <div class="table" id="addpage" style="width:800px;display:none" title="Add Lesson">
-            {% if all_lessons %}
-                {% for lesson in all_lessons %}
-                    {% if lesson not in lessons %}
-                        <a href="/user/{{ username }}/lesson/{{ lesson.id }}/addref" class="row"> <img
-                            src="/media/images/folder.png" class="upic"> {{ lesson.lessonTitle }} *** {{ lesson.user.fullname }} </a>
-                    {% endif %}
-                {% endfor %}
-            {% else %}
-                <div class="row">
-                    No lesson found.
-                </div>
-            {% endif %}
+        <div class="table" id="addpage" style="width:800px; height : 300px; display:none" title="Add Lesson">
+{#            {% if all_lessons %}#}
+{#                {% for lesson in all_lessons %}#}
+{#                    {% if lesson not in lessons %}#}
+{#                        <a href="/user/{{ username }}/lesson/{{ lesson.id }}/addref" class="row"> <img#}
+{#                            src="/media/images/folder.png" class="upic"> {{ lesson.lessonTitle }} *** {{ lesson.user.fullname }} </a>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#            {% else %}#}
+{#                <div class="row">#}
+{#                    No lesson found.#}
+{#                </div>#}
+{#            {% endif %}#}
+                <iframe style="width: 800px; height: 290px; position:absolute;left:0px;top:40px;right:0;bottom:0;z-index:2"
+                        src="/search_form?u={{ username }}" id="appframe" border="0" frameborder="0"
+                        ></iframe>
         </div>
 
     </div>

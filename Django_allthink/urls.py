@@ -1,6 +1,10 @@
 import os
 from django.conf.urls.defaults import *
 from Allthink.views import *
+from django.contrib import admin
+from ajax_select import urls as ajax_select_urls
+
+admin.autodiscover()
 
 site_media = os.path.join(
     os.path.dirname(__file__), 'site_media'
@@ -18,6 +22,8 @@ urlpatterns = patterns('',
 
     # Browsing for Teacher
     (r'^$', main_page),
+    (r'^admin/', include(admin.site.urls)),
+    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^user/(\w+)/$', user_page),
     (r'^user/(\w+)/lesson/create/$', create_lesson),
     (r'^user/(\w+)/lesson/(\w+)/view/(\w+)/(\w+)/$', view_lesson),
@@ -61,6 +67,8 @@ urlpatterns = patterns('',
     (r'^signup/$', register_page),
     (r'^signup/teacher/$', teacher_register_page),
     (r'^signup/student/$', student_register_page),
+    url(r'^search_form',  view='Allthink.views.search_form',name='search_form'),
+    (r'^admin/lookups/', include(ajax_select_urls)),
     (r'^user/(\w+)/account/$', user_edit_page),
     (r'^user/(\w+)/pic/$', user_avatar_page),
     (r'^files/$', add_doc),
