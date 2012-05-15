@@ -6,7 +6,7 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User)
     typeUser = models.CharField(max_length=20)
     fullname = models.CharField(max_length=30)
-    avatar = models.FileField(upload_to= 'media/avatar')
+    avatar = models.ImageField(upload_to= 'media/avatar')
 
 class Lesson(models.Model):
     user = models.ForeignKey(UserProfile)
@@ -45,7 +45,7 @@ class File_doc(models.Model) :
 class File_img(models.Model) :
     user = models.ForeignKey(UserProfile)
     file_name = models.CharField(max_length=255)
-    file = models.FileField(upload_to= 'DB/images')
+    file = models.ImageField(upload_to= 'DB/images')
 
 class Video(models.Model):
     lesson = models.ForeignKey(Lesson)

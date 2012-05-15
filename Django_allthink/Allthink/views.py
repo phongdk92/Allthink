@@ -84,7 +84,7 @@ def teacher_register_page(request) :
                 password=form.cleaned_data['password1'],
                 email=form.cleaned_data['email'],
             )
-            filea = File(file("/app/Django_allthink/media/avatar/teacher.jpg", 'rb'))
+            filea = File(file(os.path.join("media/avatar/teacher.jpg"), 'rb'))
             user_profile = UserProfile.objects.create(
                 user = user,
                 fullname=form.cleaned_data['fullname'],
@@ -109,7 +109,7 @@ def student_register_page(request) :
                 password=form.cleaned_data['password1'],
                 email=form.cleaned_data['email'],
             )
-            filea = File(open("/app/Django_allthink/media/avatar/student.gif", 'rb'))
+            filea = File(open(os.path.join("media/avatar/student.gif"), 'rb'))
             user_profile = UserProfile.objects.create(
                 user = user,
                 fullname=form.cleaned_data['fullname'],

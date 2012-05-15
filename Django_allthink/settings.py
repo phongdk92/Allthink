@@ -163,6 +163,7 @@ INSTALLED_APPS = (
     'Django_allthink',
     'ajax_select',
     'gunicorn',
+    'avatar'
 )
 
 # A sample logging configuration. The only tangible logging

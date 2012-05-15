@@ -162,4 +162,3 @@ class FileUploadForm(forms.Form) :
     uploadFile = forms.FileField(
         label = 'uploadFile'
     )
-

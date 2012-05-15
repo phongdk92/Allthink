@@ -20,10 +20,11 @@ db_media = os.path.join(
 
 urlpatterns = patterns('',
 
-    # Browsing for Teacher
+    # Browsing
     (r'^$', main_page),
     (r'^admin/', include(admin.site.urls)),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    (r'^avatar/', include('avatar.urls')),
     (r'^user/(\w+)/$', user_page),
     (r'^user/(\w+)/lesson/create/$', create_lesson),
     (r'^user/(\w+)/lesson/(\w+)/view/(\w+)/(\w+)/$', view_lesson),
