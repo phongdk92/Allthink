@@ -39,7 +39,7 @@ AJAX_SELECT_INLINES = 'inline'
 
 # Django settings for Django_allthink project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -49,6 +49,7 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
 
 DATABASES = {
     'default': {

@@ -10,7 +10,6 @@
     <script type="text/javascript" src="/site_media/js/common.js"></script>
 </head>
 <body>
-
 <div id="wrapper">
     <div id="navwrapper" class="notranslate">
         <ul class="topnav" style="float: right;">
@@ -29,8 +28,14 @@
         <div style="width: 960px; position: relative; margin: auto; margin-top: 20px; top: -20px; ">
         </div>
         <div class="table text">
-            <b><i> Wellcome to Group 6 - K55CA
-            </i></b><br>
+            <b><center>
+                {% if user.is_authenticated %}
+                    <meta http-equiv="Refresh" content="5; url=user/{{ user.username }}/">
+                    You have logged. This page will redirect to your page in 5 seconds
+                {% else %}
+                    Wellcome to Group 6 - K55CA
+                {% endif %} </center>
+            </b><br>
         </div>
         <script type="text/javascript">
             gid('input_usr').focus();</script>

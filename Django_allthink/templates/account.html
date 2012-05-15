@@ -22,7 +22,7 @@
                     Logout </a>
             </li>
         </ul>
-        <a href="/user/{{ username }}/" id="logo" class="gradebook" title="gradebook"><b>gradebook</b></a>
+        <a href="/" id="logo" class="gradebook" title="gradebook"><b>gradebook</b></a>
         <ul class="topnav">
             <li>
                 <a href="/user/{{ username }}/account" class="">Account </a>
@@ -85,14 +85,14 @@
                             <b>{{ form.password1.errors }} </b>
                             <div class="name"> <label for="id_password">Choose Password</label> </div>
                             <div class="field" >{{ form.password1 }}</div>
-                            <div class="help">Enter a new password (or leave blank to keep same)</div>
+                            <div class="help">Enter a new password (you must type new password for changing)</div>
                         </div>
 
                         <div class="row alt text ">
                             <b>{{ form.password2.errors }} </b>
                             <div class="name"> <label for="id_password2">Confirm Password </label> </div>
                             <div class="field">{{ form.password2 }}</div>
-                            <div class="help">Enter above password (or leave blank to keep same)</div>
+                            <div class="help">Enter above password (you must type new password for changing)</div>
                         </div>
                     </div>
                     <div class="table inform inhelp">

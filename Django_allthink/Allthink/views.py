@@ -56,9 +56,10 @@ def login(request):
             user = auth.authenticate(username=login_username, password=login_password)
             if user is not None and user.is_active:
                 auth.login(request, user)
+                check = login_form.cleaned_data['remember_me']
                 return HttpResponseRedirect('/user/'+login_username+'/')
             else:
-                status="This user is not exits !"
+                status="There were some errors with your username and password !"
             variables=RequestContext(request,{
                 'form': login_form,
                 'status':status,
@@ -212,7 +213,7 @@ def create_lesson(request, username) :
             lesson = Lesson.objects.create(
                 user = user_profile,
                 lessonTitle = form.cleaned_data['lessonTitle'],
-                author = username,
+                author = user_profile.fullname,
                 gradeLevel = form.cleaned_data['gradeLevel'],
                 subject = form.cleaned_data['subject'],
                 description = form.cleaned_data['description'],
@@ -301,12 +302,33 @@ def view_lesson(request, username, id, page, stepid) :
     return render_to_response('lesson/lesson_view.html',variables)
 
 @login_required
+@login_required
 def delete_lesson(request, username, id) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
     if user_profile.typeUser == 'student' :
         return HttpResponseRedirect('/user/'+username)
     lesson = get_object_or_404(Lesson, id = id)
+    videos = lesson.video_set.all()
+    for videos in videos :
+        videos.delete()
+
+    docs = lesson.document_set.all()
+    for doc in docs :
+        doc.delete()
+
+    images = lesson.image_set.all()
+    for image in images :
+        image.delete()
+
+    texts = lesson.text_set.all()
+    for text in texts :
+        text.delete()
+
+    stepbysteps = lesson.stepbystep_set.all()
+    for sbs in stepbysteps :
+        sbs.delete()
+
     lesson.delete()
     return HttpResponseRedirect('/user/' + username)
 

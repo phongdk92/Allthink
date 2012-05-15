@@ -26,66 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Allthink/models.py">
+      <file leaf-file-name="main_page.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/main_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="1925" selection-end="1925" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="63" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="14" selection-start="3960" selection-end="3960" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Allthink/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="877" column="33" selection-start="34067" selection-end="34067" vertical-scroll-proportion="0.34311512">
-              <folding>
-                <element signature="e#26#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lesson_view.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="93" selection-start="6245" selection-end="6245" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lookups.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lookups.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="32" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="teacher_page.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/teacher_page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="49" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0">
+            <state line="31" column="43" selection-start="1173" selection-end="1189" vertical-scroll-proportion="-10.461538">
               <folding />
             </state>
           </provider>
@@ -94,7 +38,61 @@
       <file leaf-file-name="add_image_page.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/lesson/add_image_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="27" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0">
+            <state line="55" column="52" selection-start="1347" selection-end="1351" vertical-scroll-proportion="-6.8461537">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/account.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="18" selection-start="922" selection-end="922" vertical-scroll-proportion="-15.692307">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Allthink/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="29" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="13" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="404.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/404.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="40" selection-start="714" selection-end="714" vertical-scroll-proportion="0.33864543">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="28" selection-start="640" selection-end="644" vertical-scroll-proportion="-2.3333333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Allthink/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="87" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -115,22 +113,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/avatar.html" />
-        <option value="$PROJECT_DIR$/templates/account.html" />
+        <option value="$PROJECT_DIR$/templates/lesson/create_lesson.html" />
+        <option value="$PROJECT_DIR$/urls.py" />
+        <option value="$PROJECT_DIR$/templates/lesson/lesson_view.html" />
         <option value="$PROJECT_DIR$/site_media/css/allthink.css" />
         <option value="$PROJECT_DIR$/site_media/css/global.css" />
-        <option value="$PROJECT_DIR$/site_media/css/home.css" />
-        <option value="$PROJECT_DIR$/site_media/css/lesson.css" />
-        <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/templates/lesson/lesson_edit.html" />
-        <option value="$PROJECT_DIR$/Allthink/models.py" />
-        <option value="$PROJECT_DIR$/lookups.py" />
-        <option value="$PROJECT_DIR$/templates/lesson/add_image_page.html" />
-        <option value="$PROJECT_DIR$/templates/lesson/create_lesson.html" />
-        <option value="$PROJECT_DIR$/templates/lesson/lesson_view.html" />
+        <option value="$PROJECT_DIR$/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/templates/registration/teacher_signup_success.html" />
+        <option value="$PROJECT_DIR$/templates/avatar.html" />
         <option value="$PROJECT_DIR$/templates/teacher_page.html" />
-        <option value="$PROJECT_DIR$/urls.py" />
+        <option value="$PROJECT_DIR$/templates/student_page.html" />
+        <option value="$PROJECT_DIR$/templates/account.html" />
+        <option value="$PROJECT_DIR$/templates/main_page.html" />
         <option value="$PROJECT_DIR$/Allthink/views.py" />
+        <option value="$PROJECT_DIR$/Allthink/forms.py" />
+        <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/templates/404.html" />
       </list>
     </option>
   </component>
@@ -212,7 +210,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="registration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Django_allthink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Django_allthink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lesson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Django_allthink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Django_allthink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site_media" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Django_allthink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Django_allthink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site_media" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -453,19 +501,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.7986348" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35432473" sideWeight="0.79692835" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39453718" sideWeight="0.7986348" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3653846" sideWeight="0.18133803" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20307167" sideWeight="0.55614567" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20136519" sideWeight="0.43854326" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20136519" sideWeight="0.43854326" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -528,91 +576,109 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/search_form.html">
+    <entry file="file://$PROJECT_DIR$/site_media/css/allthink.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="53" selection-start="378" selection-end="383" vertical-scroll-proportion="0.41046277" />
+        <state line="59" column="41" selection-start="913" selection-end="927" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main_page.html">
+    <entry file="file://$PROJECT_DIR$/site_media/css/global.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="51" selection-start="444" selection-end="449" vertical-scroll-proportion="0.3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/avatar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="60" selection-start="305" selection-end="310" vertical-scroll-proportion="-1.9092784" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="60" selection-start="295" selection-end="300" vertical-scroll-proportion="0.11016949" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm20/system/python_stubs/-762174762/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2744" column="8" selection-start="93560" selection-end="93560" vertical-scroll-proportion="0.33211678" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="35" selection-start="1940" selection-end="1940" vertical-scroll-proportion="-0.5980149" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/django/db/models/options.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="16" selection-start="6101" selection-end="6101" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lesson/create_lesson.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="75" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Allthink/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1925" selection-end="1925" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="14" selection-start="3960" selection-end="3960" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lesson/lesson_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="93" selection-start="6245" selection-end="6245" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lookups.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="32" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/teacher_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="49" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lesson/add_image_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" />
+        <state line="51" column="28" selection-start="639" selection-end="652" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="63" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
+        <state line="14" column="63" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/teacher_signup_success.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="50" selection-start="1086" selection-end="1086" vertical-scroll-proportion="0.24103586">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/avatar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="18" selection-start="932" selection-end="932" vertical-scroll-proportion="0.812749">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/teacher_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="18" selection-start="922" selection-end="922" vertical-scroll-proportion="0.812749">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/student_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="18" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.74712646">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="28" selection-start="640" selection-end="644" vertical-scroll-proportion="-2.3333333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/teacher_signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.050301813">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="18" selection-start="922" selection-end="922" vertical-scroll-proportion="-15.692307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/lesson/add_image_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="52" selection-start="1347" selection-end="1351" vertical-scroll-proportion="-6.8461537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="43" selection-start="1173" selection-end="1189" vertical-scroll-proportion="-10.461538">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Allthink/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="877" column="33" selection-start="34067" selection-end="34067" vertical-scroll-proportion="0.34311512">
-          <folding>
-            <element signature="e#26#35#0" expanded="true" />
-          </folding>
+        <state line="13" column="29" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Allthink/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="87" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="13" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="40" selection-start="714" selection-end="714" vertical-scroll-proportion="0.33864543">
+          <folding />
         </state>
       </provider>
     </entry>
