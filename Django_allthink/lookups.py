@@ -23,7 +23,7 @@ class LessonLookup(LookupChannel):
 
     def format_item_display(self,obj):
         """ (HTML) formatted item for displaying item in the selected deck area """
-        return '<img src="/media/images/lecture.jpg" style="height: 24px; width: 24px"  >' + '<font size="3" face="arial" color="#005685">' + u"<b>Lesson   : %s - %s</b>"% (escape(obj.lessonTitle),escape(obj.subject)) + '</font>' + '<font size="3" face="verada" color="#46a546">' +  u"<div><b>Lecturer : %s</b></div>" % escape(obj.author) + '</font>'
+        return '<img src="/site_media/images/lecture.jpg" style="height: 24px; width: 24px"  >' + '<font size="3" face="arial" color="#005685">' + u"<b>Lesson   : %s - %s</b>"% (escape(obj.lessonTitle),escape(obj.subject)) + '</font>' + '<font size="3" face="verada" color="#46a546">' +  u"<div><b>Lecturer : %s</b></div>" % escape(obj.author) + '</font>'
 
 class ALookup(LookupChannel):
 

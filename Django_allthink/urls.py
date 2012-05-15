@@ -3,20 +3,9 @@ from django.conf.urls.defaults import *
 from Allthink.views import *
 from django.contrib import admin
 from ajax_select import urls as ajax_select_urls
+import settings
 
 admin.autodiscover()
-
-site_media = os.path.join(
-    os.path.dirname(__file__), 'site_media'
-)
-
-media = os.path.join(
-    os.path.dirname(__file__), 'media'
-)
-
-db_media = os.path.join(
-    os.path.dirname(__file__), 'DB/images'
-)
 
 urlpatterns = patterns('',
 
@@ -24,7 +13,6 @@ urlpatterns = patterns('',
     (r'^$', main_page),
     (r'^admin/', include(admin.site.urls)),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^avatar/', include('avatar.urls')),
     (r'^user/(\w+)/$', user_page),
     (r'^user/(\w+)/lesson/create/$', create_lesson),
     (r'^user/(\w+)/lesson/(\w+)/view/(\w+)/(\w+)/$', view_lesson),
@@ -60,11 +48,9 @@ urlpatterns = patterns('',
     (r'^login/$', login),
     (r'^logout/$', logout_page),
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
-         { 'document_root': site_media }),
-    (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-         {'document_root': media}),
-    (r'^DB/images/(?P<path>.*)$', 'django.views.static.serve',
-         {'document_root': db_media}),
+         { 'document_root': settings.STATIC_ROOT }),
+    (r'^storages/(?P<path>.*)$', 'django.views.static.serve',
+         {'document_root': settings.MEDIA_ROOT }),
     (r'^signup/$', register_page),
     (r'^signup/teacher/$', teacher_register_page),
     (r'^signup/student/$', student_register_page),

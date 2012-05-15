@@ -4,9 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Allthink Lessons</title>
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="/site_media/global.css">
-    <script type="text/javascript" src="/site_media/common.js"></script>
-    <script type="text/javascript" src="/site_media/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="/site_media/css/global.css">
+    <script type="text/javascript" src="/site_media/js/common.js"></script>
+    <script type="text/javascript" src="/site_media/js/jquery.js"></script>
 </head>
 <body>
 
@@ -54,9 +54,9 @@
             <div style="position:absolute;left:200px;top:90px;right:0;bottom:0;z-index:2">
 
 
-                <div style="width:100%;height:75px;background:url(/media/images/allthinkbg.jpg) 0 -68px repeat-x rgb(255,255,255);font-size:8pt;line-height:200%">
+                <div style="width:100%;height:75px;background:url(/site_media/images/allthinkbg.jpg) 0 -68px repeat-x rgb(255,255,255);font-size:8pt;line-height:200%">
                     <a href="/user/{{ username }}/"
-                       target="top"><img src="/media/images/allthinklogo2.png" style="float:left;margin-right:15px"></a>
+                       target="top"><img src="/site_media/images/allthinklogo2.png" style="float:left;margin-right:15px"></a>
 
                     <div style="max-width:770px">
                         Allthink
@@ -66,7 +66,7 @@
                 <div class="options">
                     <a href=""
                        onclick="popon('addpage');return false" class="title"><img
-                            src="/media/images/page-add.png" class="upic"> Add New Lesson</a>
+                            src="/site_media/images/page-add.png" class="upic"> Add New Lesson</a>
                 </div>
 
                 <div class="table bb">
@@ -74,7 +74,7 @@
                         {% for lesson in lessons %}
                             <div class="row">
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
-                                   target="_top"><img src="/media/images/lecture.jpg" class="postpic"></a>
+                                   target="_top"><img src="/site_media/images/lecture.jpg" class="postpic"></a>
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
                                    class="title" target="top">{{ lesson.lessonTitle }}</a>
 
@@ -102,7 +102,7 @@
 {#                {% for lesson in all_lessons %}#}
 {#                    {% if lesson not in lessons %}#}
 {#                        <a href="/user/{{ username }}/lesson/{{ lesson.id }}/addref" class="row"> <img#}
-{#                            src="/media/images/folder.png" class="upic"> {{ lesson.lessonTitle }} *** {{ lesson.user.fullname }} </a>#}
+{#                            src="/site_media/images/folder.png" class="upic"> {{ lesson.lessonTitle }} *** {{ lesson.user.fullname }} </a>#}
 {#                    {% endif %}#}
 {#                {% endfor %}#}
 {#            {% else %}#}
@@ -120,7 +120,7 @@
 
 <div id="pop" class="off">
     <div id="poptop">
-        <a href="javascript:popoff();void(0)" id="popclose" title="Close"><img src="/media/images/delete.png" alt="Close"></a>
+        <a href="javascript:popoff();void(0)" id="popclose" title="Close"><img src="/site_media/images/delete.png" alt="Close"></a>
         <div id="poptitle">&nbsp;</div>
     </div>
     <div id="popc"></div>

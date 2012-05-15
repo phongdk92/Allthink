@@ -5,10 +5,10 @@
     <title>View - {{ lesson.lessonTitle }}</title>
 
     <meta name="description" content="{{ lesson.description }}">
-    <link rel="stylesheet" type="text/css" href="/site_media/allthink.css">
+    <link rel="stylesheet" type="text/css" href="/site_media/css/allthink.css">
     <script type="text/javascript" src="/site_media/common.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/site_media/lesson.css">
+    <link rel="stylesheet" type="text/css" href="/site_media/css/lesson.css">
     <script type="text/javascript">
         var PAGE = 0;
         var ITEMNAME = '{{ lesson.lessonTitle }}';
@@ -88,31 +88,31 @@
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
                         {% if page == '1' %} class="row active" {% else %} class="row " {% endif %}>
-                    <img src="/media/images/video.png"> Videos
+                    <img src="/site_media/images/video.png"> Videos
                 </a>
             </div>
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/2/0"
                         {% if page == '2' %} class="row active" {% else %} class="row " {% endif %}>
-                    <img src="/media/images/copy.png"> Document
+                    <img src="/site_media/images/copy.png"> Document
                 </a>
             </div>
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/3/0"
                         {% if page == '3' %} class="row active" {% else %} class="row " {% endif %}>
-                    <img src="/media/images/stats.png"> Images
+                    <img src="/site_media/images/stats.png"> Images
                 </a>
             </div>
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/0"
                         {% if page == '4' %} class="row active" {% else %} class="row " {% endif %}>
-                    <img src="/media/images/notepad.png"> Step by step
+                    <img src="/site_media/images/notepad.png"> Step by step
                 </a>
             </div>
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/5/0"
                         {% if page == '5' %} class="row active" {% else %} class="row " {% endif %}>
-                    <img src="/media/images/web.png"> Text
+                    <img src="/site_media/images/web.png"> Text
                 </a>
             </div>
         </div>
@@ -153,7 +153,7 @@
                                 <a href="/user/{{ username }}/download/{{ doc.id }}" class="linkdownload">
                                     Download Document </a>
                             </div>
-                            <iframe src="http://docs.google.com/gview?url=http://glowing-leaf-6372.herokuapp.com/user/{{ username }}/download/{{ doc.id }}&embedded=true"
+                            <iframe src="http://docs.google.com/gview?url={{ doc.file_doc_url }}&embedded=true"
                                     style="width:600px; height:500px;" frameborder="0">
                             </iframe>
                             <div class="lessontext"> {{ doc.text }}</div>
@@ -169,7 +169,7 @@
                         <div class="row select ">
                             <h3 style="color: #1999e3;text-align-last: center;"> {{ image.pageTitle }} </h3>
                             <div class="lessonbody">
-                                <img src="/{{ image.file_image }}">
+                                <img src="/{{ image.file_image_url }}">
                             </div>
                             <div class="lessontext">{{ image.text }}</div>
                         </div>
@@ -184,7 +184,7 @@
                         <div class="table">
                             <h4>
                             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/{{ step.id }}" class="row select">
-                                <img src="/media/images/notepad.png" style="width:15px;"> {{ step.pageTitle }}
+                                <img src="/site_media/images/notepad.png" style="width:15px;"> {{ step.pageTitle }}
                             </a>
                             </h4>
                         </div>

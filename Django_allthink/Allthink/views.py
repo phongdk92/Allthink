@@ -1,15 +1,19 @@
 # Create your views here.
 import os
 from ajax_select.fields import AutoCompleteField
+import datetime
 from django.contrib import auth
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.core.files.base import File
+from django.core.servers.basehttp import FileWrapper
 from django.http import  HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
 from Allthink.forms import *
 from Allthink.models import *
+from settings import STATIC_ROOT, MEDIA_ROOT
+
 
 @login_required
 def user_page(request, username):
@@ -84,7 +88,11 @@ def teacher_register_page(request) :
                 password=form.cleaned_data['password1'],
                 email=form.cleaned_data['email'],
             )
-            filea = File(file(os.path.join("media/avatar/teacher.jpg"), 'rb'))
+            fileinit = open('%s/%s' % (STATIC_ROOT, "images/teacher.jpg"), 'rb')
+            filea = File(fileinit)
+            filename =filea.name
+            name = filename.split('.')
+            filea.name = user.username + '_avatar_teacher' + '.'+ name[len(name)-1]
             user_profile = UserProfile.objects.create(
                 user = user,
                 fullname=form.cleaned_data['fullname'],
@@ -109,7 +117,11 @@ def student_register_page(request) :
                 password=form.cleaned_data['password1'],
                 email=form.cleaned_data['email'],
             )
-            filea = File(open(os.path.join("media/avatar/student.gif"), 'rb'))
+            fileinit = open('%s/%s' % (STATIC_ROOT, "images/student.gif"), 'rb')
+            filea = File(fileinit)
+            filename =filea.name
+            name = filename.split('.')
+            filea.name = user.username + '_avatar_student' + '.'+ name[len(name)-1]
             user_profile = UserProfile.objects.create(
                 user = user,
                 fullname=form.cleaned_data['fullname'],
@@ -172,7 +184,11 @@ def user_avatar_page(request , username) :
         if form.is_valid():
             file = user_profile.avatar
             file.delete()
-            user_profile.avatar= request.FILES['uploadFile']
+            img = request.FILES['uploadFile']
+            filename =img.name
+            name = filename.split('.')
+            img.name = username + '_avatar' + '.'+ name[len(name)-1]
+            user_profile.avatar = img
             user_profile.save()
 
     form = FileUploadForm()
@@ -361,24 +377,35 @@ def add_doc(request, username, id ) :
     if user_profile.typeUser == 'student' :
         return HttpResponseRedirect('/user/'+username)
     file_docs = user_profile.file_doc_set.all()
-    FILES = ((file.file.url,file.file.name) for file in file_docs)
+    FILES = ((file.id,file.file_name) for file in file_docs)
     if request.method == 'POST' :
         form = AddDocumentForm(request.POST, request.FILES)
         form.fields['selectFile'].choices = FILES
         if form.is_valid() :
             doc = Document.objects.create(
                 lesson = lesson,
-                file_doc = form.cleaned_data['selectFile'],
                 pageTitle = form.cleaned_data['pageTitle'],
                 text = form.cleaned_data['text'],
             )
+            f_doc_id = form.cleaned_data['selectFile']
+            if f_doc_id :
+                f_obj = File_doc.objects.get(id = f_doc_id)
+                f_doc_url = f_obj.file.url
+                doc.file_doc_id = f_doc_id
+                doc.file_doc_url = f_doc_url
+                doc.save()
             if request.FILES :
+                ufile = request.FILES['uploadFile']
+                filename = ufile.name
+                name = filename.split('.')
+                ufile.name = username + '_' + name[0] + str(datetime.datetime.now().strftime("%Y%m%dT%H%M%S")) + '.'+ name[len(name)-1]
                 file_doc = File_doc.objects.create(
                     user = user_profile,
-                    file = request.FILES['uploadFile'],
+                    file = ufile
                 )
-                doc.file_doc = file_doc.file.url
-                file_doc.file_name = file_doc.file.url
+                doc.file_doc_url = file_doc.file.url
+                doc.file_doc_id = file_doc.id
+                file_doc.file_name = name[0]+ '.'+ name[len(name)-1]
                 file_doc.save()
                 doc.save()
             return HttpResponseRedirect('/user/'+username+'/lesson/'+id+'/edit/')
@@ -404,24 +431,36 @@ def add_image(request, username, id) :
         return HttpResponseRedirect('/user/'+username)
     lesson = get_object_or_404(Lesson, id = id)
     file_imgs = user_profile.file_img_set.all()
-    FILES = ((file.file.url,file.file.name) for file in file_imgs)
+    FILES = ((file.id,file.file_name) for file in file_imgs)
     if request.method == 'POST' :
         form = AddImageForm(request.POST, request.FILES)
         form.fields['selectFile'].choices = FILES
         if form.is_valid() :
             img = Image.objects.create(
                 lesson = lesson,
-                file_image = form.cleaned_data['selectFile'],
                 pageTitle = form.cleaned_data['pageTitle'],
                 text = form.cleaned_data['text'],
             )
+            f_img_id = form.cleaned_data['selectFile']
+            if f_img_id :
+                f_obj = File_img.objects.get(id = f_img_id)
+                f_img_url = f_obj.file.url
+                img.file_image_id = f_img_id,
+                img.file_image_url = f_img_url,
+                img.save()
+
             if request.FILES :
+                ufile = request.FILES['uploadFile']
+                filename = ufile.name
+                name = filename.split('.')
+                ufile.name = username + '_' + name[0] + str(datetime.datetime.now().strftime("%Y%m%dT%H%M%S")) + '.'+ name[len(name)-1]
                 file_img = File_img.objects.create(
                     user = user_profile,
-                    file = request.FILES['uploadFile']
+                    file = ufile
                 )
-                img.file_image = file_img.file.url
-                file_img.file_name = file_img.file.url
+                img.file_image_url = file_img.file.url
+                img.file_image_id = file_img.id
+                file_img.file_name = name[0]+ '.'+ name[len(name)-1]
                 file_img.save()
                 img.save()
 
@@ -544,25 +583,34 @@ def edit_doc(request, username, id_lesson , id_doc ) :
         return HttpResponseRedirect('/user/'+username)
     doc = get_object_or_404(Document, id = id_doc)
     file_docs = user_profile.file_doc_set.all()
-    FILES = ((file.file.url,file.file.name) for file in file_docs)
+    FILES = ((file.id,file.file_name) for file in file_docs)
     if request.method == 'POST' :
         form = AddDocumentForm(request.POST, request.FILES)
         form.fields['pageTitle'].initial = doc.pageTitle
         form.fields['text'].initial = doc.text
         form.fields['selectFile'].choices = FILES
-        form.fields['selectFile'].initial = doc.file_doc
+        form.fields['selectFile'].initial = doc.file_doc_id
         if form.is_valid() :
+            f_doc_id = form.cleaned_data['selectFile']
+            f_obj = File_doc.objects.get(id = f_doc_id)
+            f_doc_url = f_obj.file.url
             doc.pageTitle = form.cleaned_data['pageTitle']
-            doc.file_doc = form.cleaned_data['selectFile']
+            doc.file_doc_id = f_doc_id
+            doc.file_doc_url= f_doc_url
             doc.text = form.cleaned_data['text']
 
             if  request.FILES :
+                ufile = request.FILES['uploadFile']
+                filename = ufile.name
+                name = filename.split('.')
+                ufile.name = username + '_' + name[0] + str(datetime.datetime.now().strftime("%Y%m%dT%H%M%S")) + '.'+ name[len(name)-1]
                 file_doc = File_doc.objects.create(
                     user = user_profile,
-                    file = request.FILES['uploadFile'] ,
+                    file = ufile,
                 )
-                doc.file_doc = file_doc.file.url
-                file_doc.file_name = file_doc.file.url
+                doc.file_doc_url = file_doc.file.url
+                doc.file_doc_id = file_doc.id
+                file_doc.file_name = name[0]+ '.'+ name[len(name)-1]
                 file_doc.save()
             doc.save()
             return HttpResponseRedirect('/user/'+username+'/lesson/'+id_lesson+'/edit/')
@@ -572,7 +620,7 @@ def edit_doc(request, username, id_lesson , id_doc ) :
     form.fields['pageTitle'].initial = doc.pageTitle
     form.fields['text'].initial = doc.text
     form.fields['selectFile'].choices = FILES
-    form.fields['selectFile'].initial = doc.file_doc
+    form.fields['selectFile'].initial = doc.file_doc_id
 
     variables = RequestContext(request,{
         'form' : form,
@@ -591,26 +639,35 @@ def edit_image(request, username, id_lesson, id_image) :
         return HttpResponseRedirect('/user/'+username)
     image = get_object_or_404(Image, id = id_image)
     file_imgs = user_profile.file_img_set.all()
-    FILES = ((file.file.url,file.file.name) for file in file_imgs)
+    FILES = ((file.id,file.file_name) for file in file_imgs)
     if request.method == 'POST' :
         form = AddImageForm(request.POST, request.FILES)
 
         form.fields['pageTitle'].initial = image.pageTitle
         form.fields['text'].initial = image.text
         form.fields['selectFile'].choices = FILES
-        form.fields['selectFile'].initial = image.file_image
+        form.fields['selectFile'].initial = image.file_image_id
         if form.is_valid() :
+            f_img_id = form.cleaned_data['selectFile']
+            f_obj = File_img.objects.get(id = f_img_id)
+            f_img_url = f_obj.file.url
             image.pageTitle = form.cleaned_data['pageTitle']
-            image.file_image = form.cleaned_data['selectFile']
+            image.file_image_id = f_img_id
+            image.file_image_url = f_img_url
             image.text = form.cleaned_data['text']
 
             if  request.FILES :
+                ufile = request.FILES['uploadFile']
+                filename = ufile.name
+                name = filename.split('.')
+                ufile.name = username + '_' + name[0] + str(datetime.datetime.now().strftime("%Y%m%dT%H%M%S")) + '.'+ name[len(name)-1]
                 file_img = File_img.objects.create(
                     user = user_profile,
-                    file = request.FILES['uploadFile'],
+                    file = ufile
                 )
-                image.file_image = file_img.file.url
-                file_img.file_name = file_img.file.url
+                image.file_image_url = file_img.file.url
+                image.file_image_id = file_img.id
+                file_img.file_name = name[0] + '.'+ name[len(name)-1]
                 file_img.save()
             image.save()
             return HttpResponseRedirect('/user/'+username+'/lesson/'+id_lesson+'/edit/')
@@ -620,7 +677,7 @@ def edit_image(request, username, id_lesson, id_image) :
     form.fields['pageTitle'].initial = image.pageTitle
     form.fields['text'].initial = image.text
     form.fields['selectFile'].choices = FILES
-    form.fields['selectFile'].initial = image.file_image
+    form.fields['selectFile'].initial = image.file_image_id
 
     variables = RequestContext(request,{
         'form' : form,
@@ -755,7 +812,7 @@ def delete_doc(request, username, id_lesson, id_doc) :
     if user_profile.typeUser == 'student' :
         return HttpResponseRedirect('/user/'+username)
     doc = get_object_or_404(Document, id = id_doc)
-#    file = get_object_or_404(File_doc, file_name = doc.file_doc)
+#    file = get_object_or_404(File_doc, id = doc.file_doc_url)
 #    file.file.delete()
 #    file.delete()
     doc.delete()
@@ -764,7 +821,7 @@ def delete_doc(request, username, id_lesson, id_doc) :
 @login_required
 def delete_image(request, username, id_lesson, id_image) :
     image = get_object_or_404(Image, id = id_image)
-#    file = get_object_or_404(File_img, file_name = image.file_image)
+#    file = get_object_or_404(File_img, id = image.file_image_url)
 #    file.file.delete()
 #    file.delete()
     image.delete()
@@ -815,12 +872,11 @@ def student_removeref(request, username, lesson_id) :
 @login_required
 def download_doc_file(request, username, id_doc) :
     doc = get_object_or_404(Document, id = id_doc)
-    file = get_object_or_404(File_doc, file_name = doc.file_doc)
+    file = get_object_or_404(File_doc, id = doc.file_doc_id)
     download_name = file.file_name
-    download = File(file.file, 'r')
-    response = HttpResponse(download.read())
+    download_file = file.file
+    response = HttpResponse(FileWrapper(download_file), content_type='application/pdf')
     response['Content-Disposition'] = "attachment;filename=%s"%download_name
-    response['Content-Length']      = os.path.getsize(file.file_name)
     return response
 
 

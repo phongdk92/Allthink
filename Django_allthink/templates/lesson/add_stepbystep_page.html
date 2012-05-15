@@ -6,8 +6,8 @@
     <title>Step-by-Step - {{ lesson.lessonTitle }}</title>
 
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="/site_media/allthink.css">
-    <script type="text/javascript" src="/site_media/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="/site_media/css/allthink.css">
+    <script type="text/javascript" src="/site_media/js/common.js"></script>
 
     <style>.tooltiptrolol {
         position: relative;
@@ -59,7 +59,7 @@
 
             <div id="links">
                 <a href="/user/{{ username }}/" class="nav">
-                    <img src="/media/images/user_128.gif"> {{ fullname }} </a>
+                    <img src="/{{ avatar_dir }}"> {{ fullname }} </a>
                 <a href="/logout/" class="nav">
                     Logout </a>
             </div>
@@ -439,7 +439,7 @@
 
 <div id="pop" class="off">
     <div id="poptop">
-        <a href="javascript:popoff();void(0)" id="popclose" title="Close"><img src="./Step-by-Step_files/delete.png"
+        <a href="javascript:popoff();void(0)" id="popclose" title="Close"><img src="/site_media/images/delete.png"
                                                                                alt="Close"></a>
 
         <div id="poptitle">&nbsp;</div>

@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Allthink Lessons</title>
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="/site_media/global.css">
-    <script type="text/javascript" src="/site_media/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="/site_media/css/global.css">
+    <script type="text/javascript" src="/site_media/js/common.js"></script>
 </head>
 <body>
 
@@ -45,9 +45,9 @@
             <div style="position:absolute;left:200px;top:90px;right:0;bottom:0;z-index:2">
 
 
-                <div style="width:100%;height:75px;background:url(/media/images/allthinkbg.jpg) 0 -68px repeat-x rgb(255,255,255);font-size:8pt;line-height:200%">
+                <div style="width:100%;height:75px;background:url(/site_media/images/allthinkbg.jpg) 0 -68px repeat-x rgb(255,255,255);font-size:8pt;line-height:200%">
                     <a href="/user/{{ username }}/"
-                       target="top"><img src="/media/images/allthinklogo2.png" style="float:left;margin-right:15px"></a>
+                       target="top"><img src="/site_media/images/allthinklogo2.png" style="float:left;margin-right:15px"></a>
 
                     <div style="max-width:770px">
                         Allthink
@@ -55,8 +55,8 @@
                 </div>
 
                 <div class="options">
-                    <a href="/user/{{ username }}/lesson/create"
-                       target="_blank"><img src="/media/images/add.png" class="upic">Create New Lesson</a>
+                    <a href="/user/{{ username }}/lesson/create">
+                        <img src="/site_media/images/add.png" class="upic">Create New Lesson</a>
                 </div>
 
                 <div class="table bb">
@@ -64,7 +64,7 @@
                         {% for lesson in lessons %}
                             <div class="row">
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
-                                   target="_top"><img src="/media/images/page-web.png" class="postpic"></a>
+                                   target="_top"><img src="/site_media/images/page-web.png" class="postpic"></a>
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
                                    class="title" target="top">{{ lesson.lessonTitle }}</a>
 

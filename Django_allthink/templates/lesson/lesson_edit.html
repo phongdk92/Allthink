@@ -5,8 +5,8 @@
     <title>Lesson Edit - {{ lesson.lessonTitle }}</title>
 
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="/site_media/allthink.css">
-    <script type="text/javascript" src="/site_media/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="/site_media/css/allthink.css">
+    <script type="text/javascript" src="/site_media/js/common.js"></script>
     <script type="text/javascript">
     </script>
     <style>.tooltiptrolol {
@@ -73,11 +73,11 @@
             <div class="options over">
                 <a href=""
                    onclick="popon('addpage');return false" class="title"><img
-                        src="/media/images/page-add.png" class="upic"> Add New Page</a>
+                        src="/site_media/images/page-add.png" class="upic"> Add New Page</a>
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/edit-info"><img
-                        src="/media/images/setting.png" class="upic"> Edit Info</a>
+                        src="/site_media/images/setting.png" class="upic"> Edit Info</a>
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/delete"><img
-                        src="/media/images/delete.png" class="upic"> Delete</a>
+                        src="/site_media/images/delete.png" class="upic"> Delete</a>
             </div>
 
             <div class="table wide">
@@ -96,7 +96,7 @@
                         <div class="row">
                             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/video/{{ video.id }}/edit"
                                class="title">
-                                <img src="/media/images/video.png" alt="Video" class="upic">
+                                <img src="/site_media/images/video.png" alt="Video" class="upic">
                                 {{ video.pageTitle }} </a>
 
                             <div class="ops">
@@ -112,7 +112,7 @@
                         <div class="row">
                             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/image/{{ image.id }}/edit"
                                class="title">
-                                <img src="/media/images/stats.png" alt="image" class="upic">
+                                <img src="/site_media/images/stats.png" alt="image" class="upic">
                                 {{ image.pageTitle }} </a>
 
                             <div class="ops">
@@ -128,7 +128,7 @@
                         <div class="row">
                             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/doc/{{ doc.id }}/edit"
                                class="title">
-                                <img src="/media/images/copy.png" alt="doc" class="upic">
+                                <img src="/site_media/images/copy.png" alt="doc" class="upic">
                                 {{ doc.pageTitle }} </a>
 
                             <div class="ops">
@@ -144,7 +144,7 @@
                         <div class="row">
                             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/step/{{ step.id }}/edit"
                                class="title">
-                                <img src="/media/images/notepad.png" alt="step" class="upic">
+                                <img src="/site_media/images/notepad.png" alt="step" class="upic">
                                 {{ step.pageTitle }} </a>
 
                             <div class="ops">
@@ -160,7 +160,7 @@
                         <div class="row">
                             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/text/{{ text.id }}/edit"
                                class="title">
-                                <img src="/media/images/web.png" alt="text" class="upic">
+                                <img src="/site_media/images/web.png" alt="text" class="upic">
                                 {{ text.pageTitle }} </a>
 
                             <div class="ops">
@@ -173,7 +173,7 @@
 
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/addpage"
                    onclick="popon('addpage');return false" class="row"><img
-                        src="/media/images/page-add.png" class="upic"> Add New Page</a>
+                        src="/site_media/images/page-add.png" class="upic"> Add New Page</a>
 
             </div>
         </div>
@@ -182,15 +182,15 @@
         <div class="table" id="addpage" style="width:700px;display:none" title="Add Page">
 
             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-video" class="row"><img
-                    src="/media/images/video.png" class="upic">Add Video</a>
+                    src="/site_media/images/video.png" class="upic">Add Video</a>
             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-doc" class="row"><img
-                    src="/media/images/copy.png" class="upic">Add Powerpoint/Document</a>
+                    src="/site_media/images/copy.png" class="upic">Add Powerpoint/Document</a>
             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-image" class="row"><img
-                    src="/media/images/stats.png" class="upic">Add Image</a>
+                    src="/site_media/images/stats.png" class="upic">Add Image</a>
             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-step" class="row"><img
-                    src="/media/images//notepad.png" class="upic">Add Step-by-Step</a>
+                    src="/site_media/images//notepad.png" class="upic">Add Step-by-Step</a>
             <a href="/user/{{ username }}/lesson/{{ lesson.id }}/add-text" class="row"><img
-                    src="/media/images/web.png" class="upic">Add Text</a>
+                    src="/site_media/images/web.png" class="upic">Add Text</a>
         </div>
 
 
@@ -198,7 +198,7 @@
 </div>
 <div id="pop" class="off">
     <div id="poptop">
-        <a href="javascript:popoff();void(0)" id="popclose" title="Close"><img src="/media/images/delete.png" alt="Close"></a>
+        <a href="javascript:popoff();void(0)" id="popclose" title="Close"><img src="/site_media/images/delete.png" alt="Close"></a>
         <div id="poptitle">&nbsp;</div>
     </div>
     <div id="popc"></div>

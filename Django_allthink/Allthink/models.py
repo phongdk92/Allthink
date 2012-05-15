@@ -6,7 +6,7 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User)
     typeUser = models.CharField(max_length=20)
     fullname = models.CharField(max_length=30)
-    avatar = models.ImageField(upload_to= 'media/avatar')
+    avatar = models.ImageField(upload_to = 'avatar' )
 
 class Lesson(models.Model):
     user = models.ForeignKey(UserProfile)
@@ -39,13 +39,13 @@ class LessonReference(models.Model):
 class File_doc(models.Model) :
     user = models.ForeignKey(UserProfile)
     file_name = models.CharField(max_length=255)
-    file = models.FileField(upload_to= 'DB/documents')
+    file = models.FileField(upload_to= 'documents')
 
 
 class File_img(models.Model) :
     user = models.ForeignKey(UserProfile)
     file_name = models.CharField(max_length=255)
-    file = models.ImageField(upload_to= 'DB/images')
+    file = models.ImageField(upload_to= 'images')
 
 class Video(models.Model):
     lesson = models.ForeignKey(Lesson)
@@ -61,7 +61,8 @@ class Video(models.Model):
 
 class Document(models.Model):
     lesson = models.ForeignKey(Lesson)
-    file_doc = models.CharField(max_length=255)
+    file_doc_url = models.CharField(max_length=255)
+    file_doc_id = models.CharField(max_length=255)
     pageTitle = models.CharField(max_length=100)
     text = models.TextField(max_length=2000)
 
@@ -69,7 +70,8 @@ class Document(models.Model):
 class Image(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
-    file_image = models.CharField(max_length=255)
+    file_image_url = models.CharField(max_length=255)
+    file_image_id = models.CharField(max_length=255)
     text = models.TextField(max_length=2000)
 
 
@@ -89,5 +91,3 @@ class Text(models.Model):
     lesson = models.ForeignKey(Lesson)
     pageTitle = models.CharField(max_length=100)
     text = models.TextField(max_length=2000)
-
-

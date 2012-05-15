@@ -1,1 +1,1 @@
-web: python Django_allthink/manage.py run_gunicorn -b "0.0.0.0:$PORT" -w 3
+web: python Django_allthink/manage.py collectstatic --noinput; gunicorn_django --workers=4 --bind=0.0.0.0:$PORT Django_allthink/settings.py 
