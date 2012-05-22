@@ -1,8 +1,8 @@
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Allthink Lessons</title>
+    <link rel="shortcut icon" href="/site_media/images/favicon.ico">
+    <title>Allthink Lessons - {{ username }}</title>
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="/site_media/css/global.css">
     <script type="text/javascript" src="/site_media/js/common.js"></script>
@@ -76,12 +76,12 @@
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
                                    target="_top"><img src="/site_media/images/lecture.jpg" class="postpic"></a>
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
-                                   class="title" target="top">{{ lesson.lessonTitle }}</a>
+                                   class="title" target="top"><b>{{ lesson.lessonTitle }}</b></a>
 
-                                <div class="byline">
+                                <div class="inline">
                                     <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0">View Lesson</a>
                                     -
-                                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/removeref">Unfollow Lesson</a>
+                                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/removeref" rel="tooltip" onclick="return confirm('Are you sure you want to unfollow this lesson ?')">Unfollow Lesson</a>
                                 </div>
                             </div>
                         {% endfor %}

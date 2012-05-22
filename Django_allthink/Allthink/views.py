@@ -47,7 +47,7 @@ def main_page(request):
     )
 
 def login(request):
-    status='Wellcome !'
+    status='Wellcome to Allthink Project'
     if request.method== "POST":
         login_form=LoginForm(request.POST)
         if login_form.is_valid():
@@ -58,7 +58,7 @@ def login(request):
                 auth.login(request, user)
                 return HttpResponseRedirect('/user/'+login_username+'/')
             else:
-                status="This user is not exits !"
+                status="There were some errors with your submission"
             variables=RequestContext(request,{
                 'form': login_form,
                 'status':status,
@@ -277,8 +277,8 @@ def view_lesson(request, username, id, page, stepid) :
     explains = ''
     for eachstep in eachsteps:
         if eachstep.step != '' :
-            steps = steps + '##' + eachstep.step
-            explains = explains + '##' + eachstep.explain
+            steps = steps + '##' + eachstep.step.rstrip()
+            explains = explains + '##' + eachstep.explain.rstrip()
 
     texts = lesson.text_set.all()
     variables = RequestContext ( request,{
@@ -365,6 +365,7 @@ def add_video(request, username, id) :
         'form' : form,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson'   : lesson,
         'avatar_dir' : user_profile.avatar.url,
         })
     return render_to_response('lesson/add_video_page.html',variables)
@@ -419,6 +420,7 @@ def add_doc(request, username, id ) :
         'fileUploadForm' : file_Upload_Form,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson'   : lesson,
         'avatar_dir' : user_profile.avatar.url,
         })
     return render_to_response('lesson/add_ppdoc_page.html',variables)
@@ -445,8 +447,8 @@ def add_image(request, username, id) :
             if f_img_id :
                 f_obj = File_img.objects.get(id = f_img_id)
                 f_img_url = f_obj.file.url
-                img.file_image_id = f_img_id,
-                img.file_image_url = f_img_url,
+                img.file_image_id = f_img_id
+                img.file_image_url = f_img_url
                 img.save()
 
             if request.FILES :
@@ -476,6 +478,7 @@ def add_image(request, username, id) :
         'fileUploadForm' : file_Upload_Form,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson': lesson,
         'avatar_dir' : user_profile.avatar.url,
         })
     return render_to_response('lesson/add_image_page.html',variables)
@@ -515,6 +518,7 @@ def add_step(request, username, id) :
         'form' : form,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson'   : lesson,
         'avatar_dir' : user_profile.avatar.url,
         })
     return render_to_response('lesson/add_stepbystep_page.html',variables)
@@ -541,6 +545,7 @@ def add_text(request, username, id) :
         'form' : form,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson'   : lesson,
         'avatar_dir' : user_profile.avatar.url,
         })
     return render_to_response('lesson/add_text_page.html',variables)
@@ -549,6 +554,7 @@ def add_text(request, username, id) :
 def edit_video(request, username, id_lesson, id_video) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    lesson = get_object_or_404(Lesson, id = id_lesson)
     if user_profile.typeUser == 'student' :
         return HttpResponseRedirect('/user/'+username)
     video = get_object_or_404(Video, id = id_video)
@@ -571,6 +577,7 @@ def edit_video(request, username, id_lesson, id_video) :
         'form' : form ,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson'   : lesson,
         'avatar_dir' : user_profile.avatar.url,
     })
     return render_to_response('lesson/add_video_page.html',variables)
@@ -583,6 +590,7 @@ def edit_doc(request, username, id_lesson , id_doc ) :
         return HttpResponseRedirect('/user/'+username)
     doc = get_object_or_404(Document, id = id_doc)
     file_docs = user_profile.file_doc_set.all()
+    lesson = get_object_or_404(Lesson, id = id_lesson)
     FILES = ((file.id,file.file_name) for file in file_docs)
     if request.method == 'POST' :
         form = AddDocumentForm(request.POST, request.FILES)
@@ -627,6 +635,7 @@ def edit_doc(request, username, id_lesson , id_doc ) :
         'fileUploadForm' : file_Upload_Form,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson'   : lesson,
         'avatar_dir' : user_profile.avatar.url,
     })
     return render_to_response('lesson/add_ppdoc_page.html',variables)
@@ -638,6 +647,7 @@ def edit_image(request, username, id_lesson, id_image) :
     if user_profile.typeUser == 'student' :
         return HttpResponseRedirect('/user/'+username)
     image = get_object_or_404(Image, id = id_image)
+    lesson = get_object_or_404(Lesson, id = id_lesson)
     file_imgs = user_profile.file_img_set.all()
     FILES = ((file.id,file.file_name) for file in file_imgs)
     if request.method == 'POST' :
@@ -684,6 +694,7 @@ def edit_image(request, username, id_lesson, id_image) :
         'fileUploadForm' : file_Upload_Form,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson'   : lesson,
         'avatar_dir' : user_profile.avatar.url,
         })
     return render_to_response('lesson/add_image_page.html',variables)
@@ -695,6 +706,7 @@ def edit_step(request, username, id_lesson, id_step) :
     if user_profile.typeUser == 'student' :
         return HttpResponseRedirect('/user/'+username)
     stepbystep = get_object_or_404(StepbyStep, id = id_step)
+    lesson = get_object_or_404(Lesson, id = id_lesson)
     steps = stepbystep.step_set.all()
     if request.method == 'POST' :
         form = AddStepbyStepForm(request.POST)
@@ -760,6 +772,7 @@ def edit_step(request, username, id_lesson, id_step) :
         'form' : form,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson'   : lesson,
         'avatar_dir' : user_profile.avatar.url,
         #'pageTitle' : stepbystep.pageTitle,
         #'promt' : stepbystep.promt,
@@ -771,6 +784,7 @@ def edit_step(request, username, id_lesson, id_step) :
 def edit_text(request, username, id_lesson, id_text) :
     user = get_object_or_404(User, username = username)
     user_profile = user.get_profile()
+    lesson = get_object_or_404(Lesson, id = id_lesson)
     if user_profile.typeUser == 'student' :
         return HttpResponseRedirect('/user/'+username)
     text = get_object_or_404(Text, id = id_text)
@@ -791,6 +805,7 @@ def edit_text(request, username, id_lesson, id_text) :
         'form' : form,
         'fullname' : user_profile.fullname,
         'username' : username,
+        'lesson'   : lesson,
         'avatar_dir' : user_profile.avatar.url,
         })
     return render_to_response('lesson/add_text_page.html',variables)
@@ -876,7 +891,7 @@ def download_doc_file(request, username, id_doc) :
     download_name = file.file_name
     download_file = file.file
     response = HttpResponse(FileWrapper(download_file), content_type='application/pdf')
-    response['Content-Disposition'] = "attachment;filename=%s"%download_name
+    response['Content-Disposition'] = "attachment;filename=%s"%download_name.encode('utf-8')
     return response
 
 

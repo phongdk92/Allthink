@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="/site_media/images/favicon.ico">
     <title>View - {{ lesson.lessonTitle }}</title>
 
     <meta name="description" content="{{ lesson.description }}">
     <link rel="stylesheet" type="text/css" href="/site_media/css/allthink.css">
-    <script type="text/javascript" src="/site_media/common.js"></script>
-
+    <script type="text/javascript" src="/site_media/js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="/site_media/css/lesson.css">
     <script type="text/javascript">
         var PAGE = 0;
@@ -80,41 +80,53 @@
                     Lesson</a>
             {% endif %}
 
-            <h1><a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0">{{ lesson.lessonTitle }}</a></h1>
+            <h1><a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0">{{ lesson.lessonTitle }} - {{ lesson.author }}</a></h1>
             {{ lesson.description }}
         </div>
 
         <div class="sidebar">
+            {%  if  videos %}
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0"
                         {% if page == '1' %} class="row active" {% else %} class="row " {% endif %}>
                     <img src="/site_media/images/video.png"> Videos
                 </a>
             </div>
+            {% endif %}
+            {%  if  docs %}
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/2/0"
                         {% if page == '2' %} class="row active" {% else %} class="row " {% endif %}>
                     <img src="/site_media/images/copy.png"> Document
                 </a>
             </div>
+            {% endif %}
+
+            {%  if  images %}
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/3/0"
                         {% if page == '3' %} class="row active" {% else %} class="row " {% endif %}>
                     <img src="/site_media/images/stats.png"> Images
                 </a>
             </div>
+            {% endif %}
+            {%  if  stepbysteps %}
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/0"
                         {% if page == '4' %} class="row active" {% else %} class="row " {% endif %}>
                     <img src="/site_media/images/notepad.png"> Step by step
                 </a>
             </div>
+            {% endif %}
+
+            {%  if  texts %}
             <div class="table">
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/5/0"
                         {% if page == '5' %} class="row active" {% else %} class="row " {% endif %}>
                     <img src="/site_media/images/web.png"> Text
                 </a>
             </div>
+            {% endif %}
         </div>
 
         <div class="table main">
@@ -122,10 +134,10 @@
             {% if page == '1' %}
                 {% if videos %}
                     {% for video in videos %}
-                        <div class="row select ">
+                        <div class="row select">
                             <div class="lessonbody">
                                 <!-- YOUTUBE -->
-                                <h1 style="text-align-last: center;">{{ video.pageTitle }}</h1>
+                                <h3 class="pageTitle">{{ video.pageTitle }}</h3>
                                 <object style="height: 400px; width: 650px" width="650" height="400">
                                     <param name="movie"
                                            value="http://www.youtube.com/v/{{ video.youtube }}?version=2&amp;enablejsapi=1&amp;fs=1&amp;hd=1&amp;playerapiid=ytplayer&amp;rel=0&amp;showsearch=0">
@@ -136,10 +148,9 @@
                                            allowscriptaccess="always"
                                            width="650" height="400">
                                 </object>
-                                <!-- VIMEO -->
+                                <div class = "lessontext">{{ video.text }}</div>
                             </div>
                         </div>
-                        <div class="lessontext">{{ video.text }}</div>
                     {% endfor %}
                 {% endif %}
             {% endif %}
@@ -147,16 +158,13 @@
             {% if page == '2' %}
                 {% if docs %}
                     {% for doc in docs %}
-                        <div class="row select ">
-                            <h3 style="color: #1999e3;"> {{ doc.pageTitle }} </h3>
+                        <div class="row select">
                             <div class="lessonbody">
+                                <h3 class="pageTitle"> {{ doc.pageTitle }} </h3>
                                 <a href="/user/{{ username }}/download/{{ doc.id }}" class="linkdownload">
                                     Download Document </a>
+                                <p class="lessontext" > {{ doc.text }}</p>
                             </div>
-                            <iframe src="http://docs.google.com/gview?url={{ doc.file_doc_url }}&embedded=true"
-                                    style="width:600px; height:500px;" frameborder="0">
-                            </iframe>
-                            <div class="lessontext"> {{ doc.text }}</div>
                         </div>
                     {% endfor %}
                 {% endif %}
@@ -167,7 +175,7 @@
                 {% if images %}
                     {% for image in images %}
                         <div class="row select ">
-                            <h3 style="color: #1999e3;text-align-last: center;"> {{ image.pageTitle }} </h3>
+                            <h3 class="pageTitle"> {{ image.pageTitle }} </h3>
                             <div class="lessonbody">
                                 <img src="/{{ image.file_image_url }}">
                             </div>
@@ -192,6 +200,7 @@
                 {% else %}
                     {% if step %}
                             <div class="lessonbody">
+                                <h3 class="pageTitle">{{ step.pageTitle }}</h3>
                                 <script type="text/javascript">
                                     function trim(str) {
                                         str = str.replace(/^\s+/, '');
@@ -255,21 +264,18 @@
                 {% if texts %}
                     {% for text in texts %}
                         <div class="row select ">
-                            <h2 style="color: #107fc9; text-align-last: center;">{{ text.pageTitle }} </h2>
-                            <div class="lessonbody"> {{ text.text }} </div>
+                            <div class="lessonbody">
+                                <h3 class="pageTitle">{{ text.pageTitle }} </h3>
+                                <p class="lessontext">{{ text.text }} </p>
+                            </div>
                         </div>
                     {% endfor %}
                 {% endif %}
             {% endif %}
         </div>
     </div>
-
 </div>
 </div>
-
-<!--
--->
-
 
 </body>
 </html>

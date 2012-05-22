@@ -2,9 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="/site_media/images/favicon.ico">
     <title>Lesson Edit - {{ lesson.lessonTitle }}</title>
 
     <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="/site_media/css/allthink.css">
     <link rel="stylesheet" type="text/css" href="/site_media/css/allthink.css">
     <script type="text/javascript" src="/site_media/js/common.js"></script>
     <script type="text/javascript">
@@ -76,8 +78,8 @@
                         src="/site_media/images/page-add.png" class="upic"> Add New Page</a>
                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/edit-info"><img
                         src="/site_media/images/setting.png" class="upic"> Edit Info</a>
-                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/delete"><img
-                        src="/site_media/images/delete.png" class="upic"> Delete</a>
+                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/delete" rel="tooltip" onclick="return confirm('Are you sure you want to delete this page?')"><img
+                        src="/site_media/images/delete.png" class="upic" > Delete</a>
             </div>
 
             <div class="table wide">
@@ -101,7 +103,7 @@
 
                             <div class="ops">
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/1/0" target="_top">View</a> &nbsp;
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/video/{{ video.id }}/delete/">Delete</a>
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/video/{{ video.id }}/delete/"  rel="tooltip" onclick="return confirm('Are you sure you want to delete this lesson?')">Delete</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -117,7 +119,7 @@
 
                             <div class="ops">
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/3/0" target="_top">View</a> &nbsp;
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/image/{{ image.id }}/delete/">Delete</a>
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/image/{{ image.id }}/delete/"  rel="tooltip" onclick="return confirm('Are you sure you want to delete this page?')">Delete</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -133,7 +135,7 @@
 
                             <div class="ops">
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/2/0" target="_top">View</a> &nbsp;
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/doc/{{ doc.id }}/delete/">Delete</a>
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/doc/{{ doc.id }}/delete/"  rel="tooltip" onclick="return confirm('Are you sure you want to delete this page?')">Delete</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -149,7 +151,7 @@
 
                             <div class="ops">
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/4/0" target="_top">View</a> &nbsp;
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/step/{{ step.id }}/delete/">Delete</a>
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/step/{{ step.id }}/delete/"  rel="tooltip" onclick="return confirm('Are you sure you want to delete this page?')">Delete</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -165,7 +167,7 @@
 
                             <div class="ops">
                                 <a href="/user/{{ username }}/lesson/{{ lesson.id }}/view/5/0" target="_top">View</a> &nbsp;
-                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/text/{{ text.id }}/delete/">Delete</a>
+                                <a href="/user/{{ username }}/lesson/{{ lesson.id }}/text/{{ text.id }}/delete/"  rel="tooltip" onclick="return confirm('Are you sure you want to delete this page?')">Delete</a>
                             </div>
                         </div>
                     {% endfor %}

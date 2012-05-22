@@ -799,8 +799,3 @@ function dragStop(event) {
     document.removeEventListener("mouseup",   dragStop, true);
   }
 }
-
-
-
-
-

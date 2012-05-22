@@ -32,15 +32,15 @@
 
         <form method="post" action=".">
             {% csrf_token %}
-            <div class="table text">
-                <b><i>
-                    {{ status }}
-                </i></b>
+            <div class="table text" >
+                <b><center>
+                    {{ status }}</center>
+                </b>
             </div>
 
             <div class="table inform smallform">
                 <div class="toprow">
-                    <div class="title">Engrade Login</div>
+                    <div class="title">Allthink Project Login</div>
                 </div>
 
                 <div class="row alt text ">
@@ -54,6 +54,14 @@
                     <div class="help"></div>
                 </div>
                 <input type="hidden" name="next" value="/"/>
+
+                <div class="row alt checkbox  ">
+                    <div class="name">&nbsp;</div>
+                    <div class="field">
+                        {{ form.remember_me }}
+                        <label for="id_remember_me">Keep me logged in on this computer</label>
+                    </div>
+                </div>
 
                 <div class="row  submit">
                     <div class="name">&nbsp;</div>

@@ -9,6 +9,7 @@ from django.forms.widgets import *
 class LoginForm(forms.Form) :
     username = forms.CharField(label="Username", max_length=30)
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
+    remember_me = forms.BooleanField(label="Remember me", required=False, initial= True)
 
 class RegistrationForm(forms.Form):
     username = forms.CharField(label='Username', max_length=30)

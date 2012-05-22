@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Allthink Lessons</title>
+    <title>Allthink - {{ username }} </title>
+    <link rel="shortcut icon" href="/site_media/images/favicon.ico">
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="/site_media/css/global.css">
     <script type="text/javascript" src="/site_media/js/common.js"></script>
@@ -71,7 +72,7 @@
                                 <div class="byline">
                                     <a href="/user/{{ username }}/lesson/{{ lesson.id }}/edit">Edit Lesson</a>
                                     -
-                                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/delete">Delete</a>
+                                    <a href="/user/{{ username }}/lesson/{{ lesson.id }}/delete" rel="tooltip" onclick="return confirm('Are you sure you want to delete this lesson?')">Delete</a>
                                 </div>
                             </div>
                         {% endfor %}
