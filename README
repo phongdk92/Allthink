@@ -1,1 +1,23 @@
-Allthink project - Group 6 K55CA - UET
+===============================================
+ Django - allthink lesson project - Group 6 , K55CA , UET 
+===============================================
+
+Documentation
+=============
+
+All documentations in link : 
+    https://github.com/downloads/phongdk55/Allthink/Doc.rar
+
+Link online 
+=============
+
+    allthink.herokuapp.com
+
+Disadvantages 
+
+=============
+    Some bugs are exist : modify the link, ... 
+    There are no storage services 
+    Must create a step by step(which have id = 1 and sure that it is permanent) before view a lesson
+    
+    
