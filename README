@@ -12,6 +12,7 @@ Link online
 ===========
 
     :Source: http://allthink.herokuapp.com
+    user : gv_demo, hs_demo . Password : 123456
 
 Using the development version
 -----------------------------
@@ -27,5 +28,3 @@ Disadvantages
     1. Some bugs are exist : modify the link, ... 
     2. There are no storage services 
     3. Must create a step by step(which have id = 1 and sure that it is permanent) before view a lesson
-    
-    
