@@ -6,12 +6,21 @@ Documentation
 =============
 
 All documentations in link : 
-    https://github.com/downloads/phongdk55/Allthink/Doc.rar
+    :Download:https://github.com/downloads/phongdk55/Allthink/Doc.rar
 
 Link online 
 =============
 
-    allthink.herokuapp.com
+    :Source: http://allthink.herokuapp.com
+
+Using the development version
+------------------------------
+
+You can clone the git repository by doing the following::
+
+    $ git clone git@github.com:phongdk55/Allthink.git final
+    or download on github.com , in branch "final"
+    
 
 Disadvantages 
 
