@@ -12,6 +12,7 @@ Link online
 ===========
 
     :Source: http://allthink.herokuapp.com
+    user : gv_demo, hs_demo . Password : 123456
 
 Using the development version
 -----------------------------
